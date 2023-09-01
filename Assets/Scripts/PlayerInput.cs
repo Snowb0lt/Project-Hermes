@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField]private Camera _camera;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _camera = Camera.main;
-    }
 
     // Update is called once per frame
     void Update()
