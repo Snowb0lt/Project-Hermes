@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _spawnTime;
     [SerializeField] private Transform _spawnpoint;
     private int _numberToSpawn;
-
+    [SerializeField] private GameObject _player;
+    [SerializeField] private float _spawnOffset;
 
     [SerializeField] private List<GameObject> _spawnables = new List<GameObject>();
+ 
 
     void Start()
     {
@@ -30,6 +32,12 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         SpawnObjects();
+        
+    }
+
+    private void LateUpdate()
+    {
+        _spawnpoint.position = new Vector2((_player.transform.position.x + _spawnOffset), _spawnpoint.position.y);
     }
 
     private void SpawnObjects()
