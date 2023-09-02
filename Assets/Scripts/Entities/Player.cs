@@ -13,17 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _launchHeight;
 
     [SerializeField] private UnityEvent GameBegun;
-    public static Player _instance { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb.GetComponent<Rigidbody2D>();
-        if (_instance == null || _instance != this)
-        {
-            Destroy(_instance);
-            _instance = this;
-        }
     }
 
     // Update is called once per frame
@@ -61,6 +55,7 @@ public class Player : MonoBehaviour
                 _playerRb.velocity = Vector2.zero;
                 Destroy(_playerRb);
                 Debug.Log("Player has Stopped");
+                Destroy(this);
             }
         }
     }
