@@ -10,8 +10,9 @@ public class Ground : MonoBehaviour, IObstacle
     private Rigidbody2D _groundRb;
     [SerializeField] private GameObject _player;
     [SerializeField] private Rigidbody2D _playerRb;
+    [SerializeField] private float _groundOffset;
 
-    //Interaction as an obstacle
+    //Interaction with player as an obstacle
     [SerializeField] private float amountSlowed;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class Ground : MonoBehaviour, IObstacle
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = new Vector2(_player.transform.position.x, transform.position.y);
+        transform.position = new Vector2((_player.transform.position.x + _groundOffset), transform.position.y);
     }
 
     public void SlowPlayer()

@@ -7,11 +7,12 @@ public class Enemy : MonoBehaviour, IObstacle
 {
     //Interaction as an obstacle
     [SerializeField] private float amountSlowed;
-
     [SerializeField] private Rigidbody2D enemyRb;
-
     [SerializeField] private GameObject target;
     [SerializeField] private Rigidbody2D targetRb;
+
+    //Specifically to the guard
+    [SerializeField] private int _moveSpeed;
 
     private void Awake()
     {
@@ -27,7 +28,8 @@ public class Enemy : MonoBehaviour, IObstacle
     // Update is called once per frame
     void Update()
     {
-        
+        //move the enemy to the left
+        transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime);
     }
     public void SlowPlayer()
     {
@@ -42,8 +44,6 @@ public class Enemy : MonoBehaviour, IObstacle
             targetRb.AddForce(new Vector2(-amountSlowed, 0), ForceMode2D.Impulse);
             Debug.Log($"Player has been slowed by {amountSlowed}");
             Destroy(gameObject);
-        }
-        
-        
+        }        
     }
 }

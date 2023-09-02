@@ -175,3 +175,4 @@ MonoBehaviour:
   enemyRb: {fileID: -2374813914094150222}
   target: {fileID: 0}
   targetRb: {fileID: 0}
+  _moveSpeed: 8
