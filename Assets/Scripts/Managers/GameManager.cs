@@ -53,4 +53,22 @@ public class GameManager : MonoBehaviour
             Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");
         }
     }
+
+    //calculate distance
+    public float _distanceFromStart { get; private set; }
+    public float _moneyEarned { get; private set; }
+    public float _totalMoney { get; private set; }
+    [SerializeField] private GameObject startPoint;
+    public void GetDistanceFromStart()
+    {
+        _distanceFromStart = Mathf.FloorToInt(Vector2.Distance(startPoint.transform.position, _player.transform.position));
+        Debug.Log($"The distance from start is {_distanceFromStart}m");
+
+        //Convert that into money
+
+        _moneyEarned = Mathf.FloorToInt(_distanceFromStart / 6);
+        Debug.Log($"Earned a total of {_moneyEarned} this round");
+
+        _totalMoney += _moneyEarned;
+    }
 }

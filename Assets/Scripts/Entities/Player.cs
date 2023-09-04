@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _launchHeight;
 
     [SerializeField] private UnityEvent GameBegun;
+    [SerializeField] private UnityEvent ShowStats;
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +53,12 @@ public class Player : MonoBehaviour
             }
             if (_playerRb.velocity.x <= 2)
             {
+                //Stop The Player
                 _playerRb.velocity = Vector2.zero;
                 Destroy(_playerRb);
+                //Get Distance from Start
+                GameManager._instance.GetDistanceFromStart();
+                ShowStats?.Invoke();
                 Debug.Log("Player has Stopped");
                 Destroy(this);
             }

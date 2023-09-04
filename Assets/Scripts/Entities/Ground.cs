@@ -29,7 +29,7 @@ public class Ground : MonoBehaviour, IObstacle
 
     public void SlowPlayer()
     {
+        //Slow the Player Down upon impact
         _playerRb.AddForce(new Vector2(-amountSlowed, 0), ForceMode2D.Impulse);
-        Debug.Log($"Player has been slowed by {amountSlowed}");
     }
 }
