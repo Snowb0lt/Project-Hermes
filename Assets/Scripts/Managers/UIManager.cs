@@ -28,12 +28,12 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters";
     }
 
     public void ShowStats()
     {
-        _DistanceText.text = GameManager._instance._distanceFromStart.ToString();
+
         _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString();
         _TotalMoneyText.text = GameManager._instance._totalMoney.ToString();
     }

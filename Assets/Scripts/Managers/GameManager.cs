@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private void LateUpdate()
     {
         _spawnpoint.position = new Vector2((_player.transform.position.x + _spawnOffset), _spawnpoint.position.y);
+        _distanceFromStart = Mathf.FloorToInt(Vector2.Distance(startPoint.transform.position, _player.transform.position));
     }
 
     private void SpawnObjects()
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject startPoint;
     public void GetDistanceFromStart()
     {
-        _distanceFromStart = Mathf.FloorToInt(Vector2.Distance(startPoint.transform.position, _player.transform.position));
+
         Debug.Log($"The distance from start is {_distanceFromStart}m");
 
         //Convert that into money

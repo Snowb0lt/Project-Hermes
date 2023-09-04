@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
                 //Get Distance from Start
                 GameManager._instance.GetDistanceFromStart();
                 ShowStats?.Invoke();
+                
                 Debug.Log("Player has Stopped");
                 Destroy(this);
             }
