@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
             Destroy(_instance);
             _instance = this;
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class UIManager : MonoBehaviour
     public void ShowStats()
     {
 
-        _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString();
-        _TotalMoneyText.text = GameManager._instance._totalMoney.ToString();
+        _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString() + " Coins Earned";
+        _TotalMoneyText.text = GameManager._instance._totalMoney.ToString() + " Total Coins";
     }
 }
