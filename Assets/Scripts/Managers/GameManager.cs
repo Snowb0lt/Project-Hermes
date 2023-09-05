@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
 
 
         _totalMoney = PlayerPrefs.GetInt("Total Money") + _moneyEarned;
-        Debug.Log($"Total money is {PlayerPrefs.GetInt("TotalMoney")} coins");
 
     }
 
