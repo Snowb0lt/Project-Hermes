@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform _spawnpoint;
     private int _numberToSpawn;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Player _playerScript;
     [SerializeField] private float _spawnOffset;
+
 
     [SerializeField] private List<GameObject> _spawnables = new List<GameObject>();
     void Start()
@@ -22,7 +26,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(_instance);
             _instance = this;
-        } 
+        }
+
+        _player = GameObject.Find("Player");
+
     }
 
     // Update is called once per frame
@@ -54,9 +61,9 @@ public class GameManager : MonoBehaviour
     }
 
     //calculate distance
-    public float _distanceFromStart { get; private set; }
-    public float _moneyEarned { get; private set; }
-    public float _totalMoney { get; private set; }
+    public int _distanceFromStart { get; private set; }
+    public int _moneyEarned { get; private set; }
+    public int _totalMoney { get; private set; }
     [SerializeField] private GameObject startPoint;
     public void GetDistanceFromStart()
     {
@@ -68,6 +75,37 @@ public class GameManager : MonoBehaviour
         _moneyEarned = Mathf.FloorToInt(_distanceFromStart / 6);
         Debug.Log($"Earned a total of {_moneyEarned} this round");
 
-        _totalMoney += _moneyEarned;
+        //Add to total money
+
+
+        _totalMoney = PlayerPrefs.GetInt("Total Money") + _moneyEarned;
+        Debug.Log($"Total money is {PlayerPrefs.GetInt("TotalMoney")} coins");
+
+    }
+
+    public void SaveStats()
+    {
+
+
+        PlayerPrefs.SetInt("Total Money", _totalMoney);
+        if (PlayerPrefs.GetInt("Highest Distance") < _distanceFromStart)
+        {
+            PlayerPrefs.SetInt("Highest Distance", _distanceFromStart);
+        }
+    }
+
+    [SerializeField] private float _launchForce;
+    [SerializeField] private float _launchHeight;
+
+    //Do a New Run
+    public void NewRun()
+    {
+        SaveStats();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PlayerUpgradeStats()
+    {
+        
     }
 }
