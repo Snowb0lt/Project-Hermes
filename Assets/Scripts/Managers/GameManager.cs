@@ -85,8 +85,10 @@ public class GameManager : MonoBehaviour
     public void SaveStats()
     {
 
-
+        //Save Money
         PlayerPrefs.SetInt("Total Money", _totalMoney);
+
+        //Set New Record Distance
         if (PlayerPrefs.GetInt("Highest Distance") < _distanceFromStart)
         {
             PlayerPrefs.SetInt("Highest Distance", _distanceFromStart);
@@ -100,6 +102,7 @@ public class GameManager : MonoBehaviour
     public void NewRun()
     {
         SaveStats();
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

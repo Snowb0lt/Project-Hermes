@@ -31,11 +31,15 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters";
+        if (PlayerPrefs.GetInt("Highest Distance") < GameManager._instance._distanceFromStart)
+        {
+            _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters - New Record!";
+        }
     }
 
     public void ShowStats()
     {
-
+        Time.timeScale = 0.0f;
         _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString() + " Coins Earned";
         _TotalMoneyText.text = GameManager._instance._totalMoney.ToString() + " Total Coins";
     }

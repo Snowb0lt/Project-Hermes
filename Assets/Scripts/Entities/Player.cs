@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         //Launch The Kobold
         if (!_isLaunched)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
             {
                 _isLaunched = true;
                 GameBegun?.Invoke();
