@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters";

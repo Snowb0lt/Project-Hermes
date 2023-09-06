@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
@@ -44,10 +43,26 @@ public class GameManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Perform secondary update tasks
+    /// </summary>
     private void LateUpdate()
     {
         _spawnpoint.position = new Vector2((_player.transform.position.x + _spawnOffset), _spawnpoint.position.y);
         _distanceFromStart = Mathf.FloorToInt(Vector2.Distance(startPoint.transform.position, _player.transform.position));
+    }
+
+    /// <summary>
+    /// When the player is launched, activate and control spawning conventions
+    /// </summary>
+    public void BeginTheGame()
+    {
+        if (!_isGameGoing)
+        {
+            _isGameGoing = true;
+            time = 0.0f;
+        }
+
     }
 
     private void SpawnObjects()
@@ -71,17 +86,10 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    public void BeginTheGame()
-    {
-        if (!_isGameGoing)
-        {
-            _isGameGoing = true;
-            time = 0.0f;
-        }
-        
-    }
 
-    //calculate distance
+    /// <summary>
+    /// calculate distance pf the player from the start point and turn it into currency at the end of the run
+    /// </summary>
     public int _distanceFromStart { get; private set; }
     public int _moneyEarned { get; private set; }
     public int _totalMoney { get; private set; }
@@ -103,6 +111,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// Save the stats of each run and handle transitions/reset
+    /// </summary>
     public void SaveStats()
     {
 
@@ -115,11 +127,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Highest Distance", _distanceFromStart);
         }
     }
-
-    [SerializeField] private float _launchForce;
-    [SerializeField] private float _launchHeight;
-
-    //Do a New Run
     public void NewRun()
     {
         SaveStats();
@@ -132,10 +139,5 @@ public class GameManager : MonoBehaviour
         SaveStats();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
-    }
-
-    public void PlayerUpgradeStats()
-    {
-        
     }
 }

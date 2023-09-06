@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
             {
                 _isLaunched = true;
                 GameBegun?.Invoke();
-                _playerRb.AddForce(new Vector2(_launchForce, _launchHeight), ForceMode2D.Impulse);
+                _playerRb.AddForce(new Vector2(_launchForce * PlayerPrefs.GetInt("Increase Launcher Force"), _launchHeight), ForceMode2D.Impulse);
                 Debug.Log("Nyoom");
             }
 
@@ -40,6 +40,11 @@ public class Player : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// Controls when the player hits an obstacle and the minimum speed for the player to stop completely.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IObstacle obstacle = collision.gameObject.GetComponent<IObstacle>();
@@ -53,16 +58,19 @@ public class Player : MonoBehaviour
             }
             if (_playerRb.velocity.x <= 2)
             {
-                //Stop The Player
-                _playerRb.velocity = Vector2.zero;
-                Destroy(_playerRb);
-                //Get Distance from Start
-                GameManager._instance.GetDistanceFromStart();
-                ShowStats?.Invoke();
-                
-                Debug.Log("Player has Stopped");
-                Destroy(this);
+                StopThePlayer();
             }
         }
+    }
+    private void StopThePlayer()
+    {
+        _playerRb.velocity = Vector2.zero;
+        Destroy(_playerRb);
+        //Get Distance from Start
+        GameManager._instance.GetDistanceFromStart();
+        ShowStats?.Invoke();
+
+        Debug.Log("Player has Stopped");
+        Destroy(this);
     }
 }

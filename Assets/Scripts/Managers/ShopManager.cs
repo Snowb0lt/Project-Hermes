@@ -1,15 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class ShopManager : MonoBehaviour
 {
-    void Awake()
+
+
+    //Database to hold upgrades
+    Dictionary<string, int> StackableUpgrades = new Dictionary<string, int>()
+    {
+        {"Increase Bounce", 0},
+        {"Increase Launcher Force", 0},
+    };
+
+    //To Do: Make a scriptable object to hold the information about the various upgrades
+
+    public static ShopManager _instance;
+    void Start()
     {
         LoadMoneyForShop();
+        if (_instance == null || _instance != this)
+        {
+            Destroy(_instance);
+            _instance = this;
+        }
     }
 
     // Update is called once per frame
@@ -19,7 +36,7 @@ public class ShopManager : MonoBehaviour
     }
 
     private int _totalMoney;
-    private int _testcost = 10;
+    
     [SerializeField] private TMP_Text _coinCounter;
 
     private void LoadMoneyForShop()
@@ -28,12 +45,13 @@ public class ShopManager : MonoBehaviour
         
     }
     
-    //Test money subtraction and money between scenes
-    private void BuyItem(int cost)
+    private void BuyItem(int cost, string item)
     {
         if (_totalMoney >= cost)
         {
             _totalMoney -= cost;
+            StackableUpgrades[item] += 1;
+            Debug.Log($"{item} has been bought at {cost}");
         }
         else
         {
@@ -41,16 +59,28 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void MoneySink()
+    /// <summary>
+    /// Set the cost and item for button upgrades
+    /// </summary>
+    [SerializeField] private TMP_Text _upgradeCost;
+    private string _upgradeCostString;
+    
+    public void BuyButton()
     {
-        BuyItem(_testcost);
+        _upgradeCostString = _upgradeCost.text.ToString();
     }
 
-    //When Done with the shop
+    /// <summary>
+    /// When Done with the shop, these interact
+    /// </summary>
 
     public void SaveStats()
     {
-
+        //Save Upgrade Values
+        foreach (KeyValuePair<string, int> upgrades in StackableUpgrades) 
+        {
+            PlayerPrefs.SetInt(upgrades.Key, upgrades.Value);
+        }
         //Save Money after purchases
         PlayerPrefs.SetInt("Total Money", _totalMoney);
     }
