@@ -14,10 +14,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _spawnTime;
     [SerializeField] private Transform _spawnpoint;
     private int _numberToSpawn;
-    [SerializeField] private GameObject _player;
+    
     [SerializeField] private Player _playerScript;
     [SerializeField] private float _spawnOffset;
 
+    [SerializeField] private GameObject _player;
+
+    //Check if the game has started
+    private bool _isGameGoing = false;
 
     [SerializeField] private List<GameObject> _spawnables = new List<GameObject>();
     void Start()
@@ -48,16 +52,33 @@ public class GameManager : MonoBehaviour
 
     private void SpawnObjects()
     {
-        if (time >= _spawnTime)
+        if (_isGameGoing)
         {
-            //Resets the Clock
-            time = 0.0f;
-            //Generate a random number to select what spawns
-            _numberToSpawn = Random.Range(0, _spawnables.Count);
-            //Spawn The Object
-            GameObject.Instantiate(_spawnables[_numberToSpawn], _spawnpoint);
-            Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");
+            if (time >= _spawnTime)
+            {
+                //Resets the Clock
+                time = 0.0f;
+                //Generate a random number to select what spawns
+                _numberToSpawn = Random.Range(0, _spawnables.Count);
+                //Spawn The Object
+                GameObject.Instantiate(_spawnables[_numberToSpawn], _spawnpoint);
+                Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");
+            }
         }
+        else
+        {
+            return;
+        }
+        
+    }
+    public void BeginTheGame()
+    {
+        if (!_isGameGoing)
+        {
+            _isGameGoing = true;
+            time = 0.0f;
+        }
+        
     }
 
     //calculate distance
@@ -103,7 +124,14 @@ public class GameManager : MonoBehaviour
     {
         SaveStats();
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
+    }
+
+    public void MoveToShop()
+    {
+        SaveStats();
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(1);
     }
 
     public void PlayerUpgradeStats()

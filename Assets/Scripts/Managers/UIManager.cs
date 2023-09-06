@@ -23,8 +23,6 @@ public class UIManager : MonoBehaviour
             Destroy(_instance);
             _instance = this;
         }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
