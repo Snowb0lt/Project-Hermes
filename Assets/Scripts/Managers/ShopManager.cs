@@ -16,6 +16,12 @@ public class ShopManager : MonoBehaviour
         {"Increase Launcher Force", 0},
     };
 
+    //Database to hold upgrade Costs
+    Dictionary<string, int> UpgradeCosts = new Dictionary<string, int>()
+    {
+        {"Increase Bounce", }
+    };
+
     //To Do: Make a scriptable object to hold the information about the various upgrades
 
     public static ShopManager _instance;
@@ -63,11 +69,14 @@ public class ShopManager : MonoBehaviour
     /// Set the cost and item for button upgrades
     /// </summary>
     [SerializeField] private TMP_Text _upgradeCost;
-    private string _upgradeCostString;
+    [SerializeField] private TMP_Text _upgradeName;
+    private int _upgradeCost;
     
     public void BuyButton()
     {
-        _upgradeCostString = _upgradeCost.text.ToString();
+        //To do: Turn the TMP _upgradeCost into an int to be used
+        
+        BuyItem(_upgradeCost, _upgradeName.ToString());
     }
 
     /// <summary>
