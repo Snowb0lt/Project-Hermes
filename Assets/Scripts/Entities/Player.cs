@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     //Base Stats
     [SerializeField] private float _launchForce;
+    [SerializeField] private PhysicsMaterial2D _bounciness;
 
     //Unity Events
     [SerializeField] private UnityEvent GameBegun;
@@ -37,24 +38,30 @@ public class Player : MonoBehaviour
 
     private void KoboldLaunched()
     {
+        //Affect Launching
         if (!_isLaunched)
         {
             if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
             {
+                Debug.Log($"Player launching at {_launchForce} {_launchForce / 2}" + $"Player Bounciness is {_bounciness.bounciness}");
                 _isLaunched = true;
                 GameBegun?.Invoke();
                 _playerRb.AddForce(new Vector2(_launchForce, (_launchForce / 2)), ForceMode2D.Impulse);
-                ApplyLaunchUpgrade();
-                Debug.Log($"Player launching at {_launchForce} {_launchForce / 2}");
+                ApplyUpgrades(_launchForce, PlayerData.Stats.LaunchForce);
+                
             }
+            
         }
+        //Affect Player Bounciness
+        ApplyUpgrades(_bounciness.bounciness, PlayerData.Stats.Bounciness);
+        
     }
 
-    private void ApplyLaunchUpgrade()
+    private void ApplyUpgrades(float BaseStat, PlayerData.Stats UpgradedStats)
     {
-        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.LaunchForce))
+        if (_playerData.UpgradeDictionary.ContainsKey(UpgradedStats))
         {
-            _launchForce = _launchForce * (1 + _playerData.UpgradeDictionary[PlayerData.Stats.LaunchForce]);
+            BaseStat = BaseStat * (1 + _playerData.UpgradeDictionary[UpgradedStats]);
         }
     }
 

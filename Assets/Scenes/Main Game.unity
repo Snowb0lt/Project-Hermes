@@ -2358,6 +2358,7 @@ MonoBehaviour:
   _playerRb: {fileID: 1757757530}
   _isLaunched: 0
   _launchForce: 25
+  _bounciness: {fileID: 6200000, guid: c33c7ba66559f4d4887fdfef657e4bc1, type: 2}
   GameBegun:
     m_PersistentCalls:
       m_Calls:
