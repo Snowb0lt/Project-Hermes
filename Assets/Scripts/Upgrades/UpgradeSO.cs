@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Upgrade", menuName = "ScriptableObjects/Upgrades")]
-public class UpgradeScriptableObject : ScriptableObject
+public class UpgradeSO : ScriptableObject
 {
 
     public Sprite UpgradeIcon;

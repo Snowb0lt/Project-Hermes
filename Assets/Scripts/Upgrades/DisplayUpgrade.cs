@@ -7,7 +7,7 @@ using TMPro;
 public class DisplayUpgrade : MonoBehaviour
 {
 
-    [SerializeField] private UpgradeScriptableObject upgrade;
+    [SerializeField] private UpgradeSO upgrade;
 
     [SerializeField] private GameObject UpgradeStats;
 

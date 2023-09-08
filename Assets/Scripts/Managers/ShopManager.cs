@@ -18,7 +18,7 @@ public class ShopManager : MonoBehaviour
 
     //To Do: Make a scriptable object to hold the information about the various upgrades
     
-    public UpgradeScriptableObject upgradeScriptableObjects;
+    public UpgradeSO upgradeScriptableObjects;
 
     [SerializeField] private int _chosenUpgrade;
 
