@@ -10,10 +10,10 @@ public class ShopManager : MonoBehaviour
 
 
     //Database to hold upgrades
-    Dictionary<string, int> StackableUpgrades = new Dictionary<string, int>()
+    Dictionary<string, int> UpgradeDictionary = new Dictionary<string, int>()
     {
-        {"Increase Bounce", 0},
-        {"Increase Launcher Force", 0},
+        //{"Increase Bounce", 0},
+        //{"Increase Launcher Force", 0},
     };
 
     //To Do: Make a scriptable object to hold the information about the various upgrades
@@ -40,23 +40,39 @@ public class ShopManager : MonoBehaviour
         _coinCounter.text = _totalMoney.ToString();
     }
 
+
+    /// <summary>
+    /// Load the amount of money for the player
+    /// </summary>
     private int _totalMoney;
-    
     [SerializeField] private TMP_Text _coinCounter;
 
     private void LoadMoneyForShop()
     {
-        _totalMoney = PlayerPrefs.GetInt("Total Money");
-        
+        _totalMoney = PlayerPrefs.GetInt("Total Money");        
     }
     
+
+    /// <summary>
+    /// Handle the Buying and adding of Upgrades to Dictionary Values
+    /// </summary>
+    /// <param name="cost"></param>
+    /// <param name="item"></param>
     private void BuyItem(int cost, string item)
     {
         if (_totalMoney >= cost)
         {
             _totalMoney -= cost;
-            StackableUpgrades[item] += 1;
-            Debug.Log($"{item} has been bought at {cost}");
+            if (!UpgradeDictionary.ContainsKey(item))
+            {
+                UpgradeDictionary.TryAdd(item, 1);
+            }
+            else
+            {
+                UpgradeDictionary[item]++;
+            }
+
+            Debug.Log($"{item} has been bought at {cost}, current value of Dictionary is {UpgradeDictionary[item].ToString()}");
         }
         else
         {
@@ -71,6 +87,7 @@ public class ShopManager : MonoBehaviour
     
     public void BuyButton()
     {
+        BuyItem(upgradeScriptableObjects._upgradeCost, upgradeScriptableObjects._upgradeName);
 
         Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
 
@@ -83,7 +100,7 @@ public class ShopManager : MonoBehaviour
     public void SaveStats()
     {
         //Save Upgrade Values
-        foreach (KeyValuePair<string, int> upgrades in StackableUpgrades) 
+        foreach (KeyValuePair<string, int> upgrades in UpgradeDictionary) 
         {
             PlayerPrefs.SetInt(upgrades.Key, upgrades.Value);
         }
