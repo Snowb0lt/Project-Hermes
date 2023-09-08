@@ -18,13 +18,13 @@ public class PlayerData : MonoBehaviour
     public int _longestDistance;
 
     //Player Upgrades
-    public Dictionary<string, int> UpgradeDictionary = new Dictionary<string, int>()
+    public Dictionary<Stats, float> UpgradeDictionary = new Dictionary<Stats, float>()
     {
-        //{"Increase Bounce", 0},
-        //{"Increase Launcher Force", 0},
+
     };
-    public int _launchForce;
-    public int _PlayerBounce;
+
+    public int _launchForce = 1;
+    public int _PlayerBounce = 1;
 
     //Instance
     public static PlayerData _instance;
@@ -44,6 +44,14 @@ public class PlayerData : MonoBehaviour
 
     private void Update()
     {
+
+    }
+
+
+    public enum Stats
+    {
+        LaunchForce,
+        Bounciness,
 
     }
 }

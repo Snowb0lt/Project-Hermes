@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
 
     //Base Stats
     [SerializeField] private float _launchForce;
-    [SerializeField] private float _launchHeight;
 
     //Unity Events
     [SerializeField] private UnityEvent GameBegun;
@@ -32,19 +31,31 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Launch The Kobold
+        KoboldLaunched();
+
+    }
+
+    private void KoboldLaunched()
+    {
         if (!_isLaunched)
         {
             if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
             {
                 _isLaunched = true;
                 GameBegun?.Invoke();
-                _playerRb.AddForce(new Vector2(_launchForce + (1), _launchHeight), ForceMode2D.Impulse);
-                Debug.Log($"Player launching at {_launchForce} {_launchHeight}");
+                _playerRb.AddForce(new Vector2(_launchForce, (_launchForce / 2)), ForceMode2D.Impulse);
+                ApplyLaunchUpgrade();
+                Debug.Log($"Player launching at {_launchForce} {_launchForce / 2}");
             }
-
-
         }
+    }
 
+    private void ApplyLaunchUpgrade()
+    {
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.LaunchForce))
+        {
+            _launchForce = _launchForce * (1 + _playerData.UpgradeDictionary[PlayerData.Stats.LaunchForce]);
+        }
     }
 
 

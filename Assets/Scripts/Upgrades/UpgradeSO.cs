@@ -10,4 +10,6 @@ public class UpgradeSO : ScriptableObject
     public string _upgradeDescription;
 
 
+    public PlayerData.Stats _statToUpgrade;
+    public float _upgradeAmount;
 }

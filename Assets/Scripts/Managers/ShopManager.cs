@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class ShopManager : MonoBehaviour
 {
@@ -54,18 +55,18 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     /// <param name="cost"></param>
     /// <param name="item"></param>
-    private void BuyItem(int cost, string item)
+    private void BuyItem(int cost, PlayerData.Stats item, float upgradeAmount)
     {
         if (_totalMoney >= cost)
         {
             _totalMoney -= cost;
             if (!_playerData.UpgradeDictionary.ContainsKey(item))
             {
-                _playerData.UpgradeDictionary.TryAdd(item, 1);
+                _playerData.UpgradeDictionary.TryAdd(item, upgradeAmount);
             }
             else
             {
-                _playerData.UpgradeDictionary[item]++;
+                _playerData.UpgradeDictionary[item] += upgradeAmount;
             }
 
             Debug.Log($"{item} has been bought at {cost}, current value of Dictionary is {_playerData.UpgradeDictionary[item].ToString()}");
@@ -83,7 +84,7 @@ public class ShopManager : MonoBehaviour
     
     public void BuyButton()
     {
-        BuyItem(upgradeScriptableObjects._upgradeCost, upgradeScriptableObjects._upgradeName);
+        BuyItem(upgradeScriptableObjects._upgradeCost, upgradeScriptableObjects._statToUpgrade, upgradeScriptableObjects._upgradeAmount);
 
         //Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
 

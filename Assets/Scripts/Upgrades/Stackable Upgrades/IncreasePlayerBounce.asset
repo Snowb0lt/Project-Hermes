@@ -17,3 +17,5 @@ MonoBehaviour:
   _upgradeCost: 10
   _upgradeDescription: '"With this supply of potions, you can increase your bounciness!
     Not only will it allow you to fly further, but it''ll hurt less!"'
+  _statToUpgrade: 1
+  _upgradeAmount: 0.2

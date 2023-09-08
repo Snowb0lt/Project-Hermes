@@ -17,3 +17,5 @@ MonoBehaviour:
   _upgradeCost: 5
   _upgradeDescription: '"Strategically tightening certain mechanisms (along with
     adding a better elastic) can help to increase the launch force!"'
+  _statToUpgrade: 0
+  _upgradeAmount: 0.2
