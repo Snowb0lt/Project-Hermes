@@ -22,22 +22,32 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private int _chosenUpgrade;
 
+    [SerializeField]private PlayerData _playerData;
+
 
     public static ShopManager _instance;
-    void Start()
+    private void Awake()
     {
-        LoadMoneyForShop();
+
         if (_instance == null || _instance != this)
         {
             Destroy(_instance);
             _instance = this;
         }
+        _playerData = PlayerData.FindObjectOfType<PlayerData>();
     }
+
+    void Start()
+    {
+        _totalMoney = _playerData._coins;
+    }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        _coinCounter.text = _totalMoney.ToString();
+        _coinCounter.text = _totalMoney.ToString(); 
     }
 
 
@@ -46,11 +56,6 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     private int _totalMoney;
     [SerializeField] private TMP_Text _coinCounter;
-
-    private void LoadMoneyForShop()
-    {
-        _totalMoney = PlayerPrefs.GetInt("Total Money");        
-    }
     
 
     /// <summary>
@@ -89,7 +94,7 @@ public class ShopManager : MonoBehaviour
     {
         BuyItem(upgradeScriptableObjects._upgradeCost, upgradeScriptableObjects._upgradeName);
 
-        Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
+        //Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
 
     }
 
@@ -105,7 +110,7 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt(upgrades.Key, upgrades.Value);
         }
         //Save Money after purchases
-        PlayerPrefs.SetInt("Total Money", _totalMoney);
+        _playerData._coins = _totalMoney;
     }
 
     public void BackToLaunch()
