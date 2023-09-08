@@ -9,16 +9,23 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D _playerRb;
     [SerializeField] private bool _isLaunched = false;
 
+    //Base Stats
     [SerializeField] private float _launchForce;
     [SerializeField] private float _launchHeight;
 
+    //Unity Events
     [SerializeField] private UnityEvent GameBegun;
     [SerializeField] private UnityEvent ShowStats;
+
+    //Dependencies
+    [SerializeField] private PlayerData _playerData;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb.GetComponent<Rigidbody2D>();
+        _playerData = FindObjectOfType<PlayerData>();
     }
 
     // Update is called once per frame
@@ -31,7 +38,7 @@ public class Player : MonoBehaviour
             {
                 _isLaunched = true;
                 GameBegun?.Invoke();
-                _playerRb.AddForce(new Vector2(_launchForce, _launchHeight), ForceMode2D.Impulse);
+                _playerRb.AddForce(new Vector2(_launchForce + (1), _launchHeight), ForceMode2D.Impulse);
                 Debug.Log($"Player launching at {_launchForce} {_launchHeight}");
             }
 

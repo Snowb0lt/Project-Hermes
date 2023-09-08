@@ -7,15 +7,6 @@ using Unity.VisualScripting;
 
 public class ShopManager : MonoBehaviour
 {
-
-
-    //Database to hold upgrades
-    Dictionary<string, int> UpgradeDictionary = new Dictionary<string, int>()
-    {
-        //{"Increase Bounce", 0},
-        //{"Increase Launcher Force", 0},
-    };
-
     //To Do: Make a scriptable object to hold the information about the various upgrades
     
     public UpgradeSO upgradeScriptableObjects;
@@ -68,16 +59,16 @@ public class ShopManager : MonoBehaviour
         if (_totalMoney >= cost)
         {
             _totalMoney -= cost;
-            if (!UpgradeDictionary.ContainsKey(item))
+            if (!_playerData.UpgradeDictionary.ContainsKey(item))
             {
-                UpgradeDictionary.TryAdd(item, 1);
+                _playerData.UpgradeDictionary.TryAdd(item, 1);
             }
             else
             {
-                UpgradeDictionary[item]++;
+                _playerData.UpgradeDictionary[item]++;
             }
 
-            Debug.Log($"{item} has been bought at {cost}, current value of Dictionary is {UpgradeDictionary[item].ToString()}");
+            Debug.Log($"{item} has been bought at {cost}, current value of Dictionary is {_playerData.UpgradeDictionary[item].ToString()}");
         }
         else
         {
@@ -104,11 +95,6 @@ public class ShopManager : MonoBehaviour
 
     public void SaveStats()
     {
-        //Save Upgrade Values
-        foreach (KeyValuePair<string, int> upgrades in UpgradeDictionary) 
-        {
-            PlayerPrefs.SetInt(upgrades.Key, upgrades.Value);
-        }
         //Save Money after purchases
         _playerData._coins = _totalMoney;
     }
