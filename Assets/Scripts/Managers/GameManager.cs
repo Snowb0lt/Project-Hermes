@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _spawnOffset;
 
     [SerializeField] private GameObject _player;
+    [SerializeField] private PlayerData _playerData;
 
     //Check if the game has started
     private bool _isGameGoing = false;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
 
         _player = GameObject.Find("Player");
-
+        _playerData = PlayerData.FindObjectOfType<PlayerData>();
     }
 
     void Update()
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// calculate distance pf the player from the start point and turn it into currency at the end of the run
+    /// calculate distance of the player from the start point and turn it into currency at the end of the run
     /// </summary>
     public int _distanceFromStart { get; private set; }
     public int _moneyEarned { get; private set; }
@@ -106,37 +107,30 @@ public class GameManager : MonoBehaviour
 
         //Add to total money
 
-
-        _totalMoney = PlayerPrefs.GetInt("Total Money") + _moneyEarned;
-
-    }
-
-
-    /// <summary>
-    /// Save the stats of each run and handle transitions/reset
-    /// </summary>
-    public void SaveStats()
-    {
-
-        //Save Money
-        PlayerPrefs.SetInt("Total Money", _totalMoney);
-
         //Set New Record Distance
-        if (PlayerPrefs.GetInt("Highest Distance") < _distanceFromStart)
+        if (_playerData._longestDistance < _distanceFromStart)
         {
-            PlayerPrefs.SetInt("Highest Distance", _distanceFromStart);
+            _playerData._longestDistance = _distanceFromStart;
         }
     }
+
+    public void SaveCoinTotal()
+    {
+        //Add to total
+        _totalMoney = _playerData._coins + _moneyEarned;
+
+        //Save new total
+        _playerData._coins = _totalMoney;
+    }
+
     public void NewRun()
     {
-        SaveStats();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 
     public void MoveToShop()
     {
-        SaveStats();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }

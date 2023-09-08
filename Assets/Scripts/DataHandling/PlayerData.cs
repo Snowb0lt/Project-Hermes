@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData
+
+/// <summary>
+/// Houses the player's stats and upgrades between scenes
+/// </summary>
+
+
+public class PlayerData : MonoBehaviour
 {
     //Player Stats
 
@@ -13,25 +19,27 @@ public class PlayerData
 
     //Player Upgrades
 
+    public int _launchForce;
+    public int _PlayerBounce;
 
     //Instance
-    private static PlayerData _instance;
+    public static PlayerData _instance;
     // Start is called before the first frame update
-    public static PlayerData Instance
+    private void Awake()
     {
-        get
+        DontDestroyOnLoad(this);
+        if (_instance == null)
         {
-            if (_instance == null)
-            {
-                _instance = new PlayerData();
-            }
-            return _instance;
+            _instance = this;
+        }
+        else
+        {
+        Object.Destroy(gameObject);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
     }
 }

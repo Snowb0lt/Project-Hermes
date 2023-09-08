@@ -9,7 +9,7 @@ public class SaveData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerData = PlayerData.Instance;
+        playerData = PlayerData._instance;
     }
     public void SavePlayerData()
     {

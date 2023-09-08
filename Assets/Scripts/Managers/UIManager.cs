@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _TotalMoneyText;
     [SerializeField] private TMP_Text _MoneyEarnedText;
     [SerializeField] private GameObject _statsScreen;
+    
 
 
     public static UIManager _instance;
@@ -38,6 +39,6 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString() + " Coins Earned";
-        _TotalMoneyText.text = GameManager._instance._totalMoney.ToString() + " Total Coins";
+        _TotalMoneyText.text = PlayerData._instance._coins + " Total Coins";
     }
 }

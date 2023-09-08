@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
             {
                 _isLaunched = true;
                 GameBegun?.Invoke();
-                _playerRb.AddForce(new Vector2(_launchForce * PlayerPrefs.GetInt("Increase Launcher Force"), _launchHeight), ForceMode2D.Impulse);
-                Debug.Log("Nyoom");
+                _playerRb.AddForce(new Vector2(_launchForce, _launchHeight), ForceMode2D.Impulse);
+                Debug.Log($"Player launching at {_launchForce} {_launchHeight}");
             }
 
 
@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
         Destroy(_playerRb);
         //Get Distance from Start
         GameManager._instance.GetDistanceFromStart();
+        GameManager._instance.SaveCoinTotal();
         ShowStats?.Invoke();
 
         Debug.Log("Player has Stopped");
