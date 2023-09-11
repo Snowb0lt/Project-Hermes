@@ -311,6 +311,7 @@ MonoBehaviour:
   _playerData: {fileID: 1626702276}
   _spawnables:
   - {fileID: 2357536154502611677, guid: 5140d82cbb0e55b409cb6af2f700d313, type: 3}
+  - {fileID: 6474781603942908793, guid: 12889b5aa2c57454d85c37879c979514, type: 3}
   startPoint: {fileID: 145305153}
 --- !u!4 &70544086
 Transform:

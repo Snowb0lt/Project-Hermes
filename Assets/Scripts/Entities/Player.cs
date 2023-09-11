@@ -57,9 +57,6 @@ public class Player : MonoBehaviour
         _bounciness.bounciness = _bounciness.bounciness + _playerData.UpgradeDictionary[PlayerData.Stats.Bounciness];
         
     }
-
-
-
     /// <summary>
     /// Controls when the player hits an obstacle and the minimum speed for the player to stop completely.
     /// </summary>
