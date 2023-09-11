@@ -19,3 +19,5 @@ MonoBehaviour:
     adding a better elastic) can help to increase the launch force!"'
   _statToUpgrade: 0
   _upgradeAmount: 0.2
+  _upgradeUnlocked: 1
+  _unlockedSpawnable: {fileID: 0}

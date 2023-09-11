@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -23,6 +24,7 @@ public class PlayerData : MonoBehaviour
     {
 
     };
+
 
     public List<GameObject> UnlockedSpawnables = new List<GameObject>()
     {
@@ -48,6 +50,8 @@ public class PlayerData : MonoBehaviour
         {
         Object.Destroy(gameObject);
         }
+        UpgradeDictionary.Add(Stats.LaunchForce, 0);
+        UpgradeDictionary.Add(Stats.Bounciness, 0);
     }
 
     private void Update()

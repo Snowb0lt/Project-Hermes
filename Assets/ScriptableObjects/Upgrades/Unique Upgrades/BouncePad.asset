@@ -20,4 +20,4 @@ MonoBehaviour:
   _statToUpgrade: 2
   _upgradeAmount: 1
   _upgradeUnlocked: 0
-  _unlockedSpawnable: {fileID: 0}
+  _unlockedSpawnable: {fileID: 4896445502146694125, guid: ec2006ba0932e6145a66e6d5d291e382, type: 3}

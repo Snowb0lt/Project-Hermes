@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _isLaunched = false;
 
     //Base Stats
-    [SerializeField] private float _launchForce;
+    [SerializeField] private float _baseLaunchForce = 25f;
+    [SerializeField] private float _finalLaunchForce;
     [SerializeField] private PhysicsMaterial2D _bounciness;
 
     //Unity Events
@@ -43,27 +44,20 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
             {
-                Debug.Log($"Player launching at {_launchForce} {_launchForce / 2}" + $"Player Bounciness is {_bounciness.bounciness}");
+                _finalLaunchForce = _baseLaunchForce * (1 + _playerData.UpgradeDictionary[PlayerData.Stats.LaunchForce]);
+                Debug.Log($"Player launching at {_finalLaunchForce} {_finalLaunchForce / 2}" + $"Player Bounciness is {_bounciness.bounciness}");
                 _isLaunched = true;
                 GameBegun?.Invoke();
-                _playerRb.AddForce(new Vector2(_launchForce, (_launchForce / 2)), ForceMode2D.Impulse);
-                ApplyUpgrades(_launchForce, PlayerData.Stats.LaunchForce);
+                _playerRb.AddForce(new Vector2(_finalLaunchForce, (_finalLaunchForce / 2)), ForceMode2D.Impulse);
                 
             }
             
         }
         //Affect Player Bounciness
-        ApplyUpgrades(_bounciness.bounciness, PlayerData.Stats.Bounciness);
+        _bounciness.bounciness = _bounciness.bounciness + _playerData.UpgradeDictionary[PlayerData.Stats.Bounciness];
         
     }
 
-    private void ApplyUpgrades(float BaseStat, PlayerData.Stats UpgradedStats)
-    {
-        if (_playerData.UpgradeDictionary.ContainsKey(UpgradedStats))
-        {
-            BaseStat = BaseStat * (1 + _playerData.UpgradeDictionary[UpgradedStats]);
-        }
-    }
 
 
     /// <summary>

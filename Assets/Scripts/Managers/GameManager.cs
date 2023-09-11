@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
                 //Resets the Clock
                 time = 0.0f;
                 //Generate a random number to select what spawns
-                _numberToSpawn = Random.Range(0, _spawnables.Count -1);
+                _numberToSpawn = Random.Range(0, _spawnables.Count);
                 //Spawn The Object
                 GameObject.Instantiate(_spawnables[_numberToSpawn], _spawnpoint);
                 Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");

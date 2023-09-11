@@ -19,3 +19,5 @@ MonoBehaviour:
     Not only will it allow you to fly further, but it''ll hurt less!"'
   _statToUpgrade: 1
   _upgradeAmount: 0.2
+  _upgradeUnlocked: 1
+  _unlockedSpawnable: {fileID: 0}
