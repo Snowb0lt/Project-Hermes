@@ -27,7 +27,7 @@ public class Ground : MonoBehaviour, IObstacle
         transform.position = new Vector2((_player.transform.position.x + _groundOffset), transform.position.y);
     }
 
-    public void SlowPlayer()
+    public void InteractWithPlayer()
     {
         //Slow the Player Down upon impact
         _playerRb.AddForce(new Vector2(-amountSlowed, 0), ForceMode2D.Impulse);

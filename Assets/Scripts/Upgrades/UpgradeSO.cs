@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Upgrade", menuName = "ScriptableObjects/Upgrades")]
@@ -12,4 +13,15 @@ public class UpgradeSO : ScriptableObject
 
     public PlayerData.Stats _statToUpgrade;
     public float _upgradeAmount;
+    public bool _upgradeUnlocked;
+
+    public GameObject _unlockedSpawnable;
+
+    public void CheckIfSpawnable()
+    {
+        if (_unlockedSpawnable == null)
+        {
+            return;
+        }
+    }
 }

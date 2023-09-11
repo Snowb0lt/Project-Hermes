@@ -9,8 +9,8 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 public class ShopManager : MonoBehaviour
 {
     //To Do: Make a scriptable object to hold the information about the various upgrades
-    
-    public UpgradeSO upgradeScriptableObjects;
+
+    public UpgradeSO upgradeSO;
 
     [SerializeField] private int _chosenUpgrade;
 
@@ -63,6 +63,9 @@ public class ShopManager : MonoBehaviour
             if (!_playerData.UpgradeDictionary.ContainsKey(item))
             {
                 _playerData.UpgradeDictionary.TryAdd(item, upgradeAmount);
+                _playerData.UnlockUpgrade(upgradeSO._unlockedSpawnable);
+                //_playerData.UnlockUpgrade(upgradeScriptableObjects._upgradeUnlocked, item);
+
             }
             else
             {
@@ -84,7 +87,7 @@ public class ShopManager : MonoBehaviour
     
     public void BuyButton()
     {
-        BuyItem(upgradeScriptableObjects._upgradeCost, upgradeScriptableObjects._statToUpgrade, upgradeScriptableObjects._upgradeAmount);
+        BuyItem(upgradeSO._upgradeCost, upgradeSO._statToUpgrade, upgradeSO._upgradeAmount);
 
         //Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
 

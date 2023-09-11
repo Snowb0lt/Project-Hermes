@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
             //hit an obstacle
             if (_playerRb.velocity.x > 2.0f)
             {
-                obstacle.SlowPlayer();
+                obstacle.InteractWithPlayer();
             }
             if (_playerRb.velocity.x <= 2)
             {

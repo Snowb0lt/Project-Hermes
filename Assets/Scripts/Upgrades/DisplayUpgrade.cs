@@ -30,6 +30,6 @@ public class DisplayUpgrade : MonoBehaviour
         _upgradeNameText.text = upgrade._upgradeName;
 
         //Change Scriptable Object of ShopManager
-        _shopManager.upgradeScriptableObjects = upgrade;
+        _shopManager.upgradeSO = upgrade;
     }
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -14,7 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _spawnTime;
     [SerializeField] private Transform _spawnpoint;
     private int _numberToSpawn;
-    
+
+    private UpgradeSO upgradeSO;
+
     [SerializeField] private Player _playerScript;
     [SerializeField] private float _spawnOffset;
 
@@ -66,8 +70,25 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void AddToSpawning()
+    {
+        foreach (GameObject spawnable in _playerData.UnlockedSpawnables)
+        {
+            if (!_spawnables.Contains(spawnable))
+            {
+                _spawnables.Add(spawnable);
+            }
+            else
+            {
+                return;
+            }
+            
+        }
+    }
+
     private void SpawnObjects()
     {
+        AddToSpawning();
         if (_isGameGoing)
         {
             if (time >= _spawnTime)
@@ -75,7 +96,7 @@ public class GameManager : MonoBehaviour
                 //Resets the Clock
                 time = 0.0f;
                 //Generate a random number to select what spawns
-                _numberToSpawn = Random.Range(0, _spawnables.Count);
+                _numberToSpawn = Random.Range(0, _spawnables.Count -1);
                 //Spawn The Object
                 GameObject.Instantiate(_spawnables[_numberToSpawn], _spawnpoint);
                 Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");

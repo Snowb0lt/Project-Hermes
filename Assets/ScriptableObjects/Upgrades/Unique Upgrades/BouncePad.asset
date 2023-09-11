@@ -17,5 +17,7 @@ MonoBehaviour:
   _upgradeCost: 15
   _upgradeDescription: '"I can have someone lay little trampolines along the path.
     Good to give you a bounce and keep you going!"'
-  _statToUpgrade: 0
-  _upgradeAmount: 0
+  _statToUpgrade: 2
+  _upgradeAmount: 1
+  _upgradeUnlocked: 0
+  _unlockedSpawnable: {fileID: 0}

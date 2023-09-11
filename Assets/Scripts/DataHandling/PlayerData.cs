@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 
 /// <summary>
@@ -23,8 +24,15 @@ public class PlayerData : MonoBehaviour
 
     };
 
+    public List<GameObject> UnlockedSpawnables = new List<GameObject>()
+    {
+
+    };
     public int _launchForce = 1;
     public int _PlayerBounce = 1;
+
+    //Link to Scriptable Object
+    public UpgradeSO upgradeSO;
 
     //Instance
     public static PlayerData _instance;
@@ -47,11 +55,22 @@ public class PlayerData : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Certain Objects are unlockable (bounce pads, wings, etc.). This controls unlocking them
+    /// </summary>
+    /// <param name="ObjectUnlocked"></param>
+    /// <param name="ObjectInDictionary"></param>
+    public void UnlockUpgrade(GameObject unlockedSpawnable)
+    {
+            UnlockedSpawnables.Add(unlockedSpawnable);
+            Debug.Log($"{unlockedSpawnable} is unlocked!");
+    }
     public enum Stats
     {
         LaunchForce,
         Bounciness,
-
+        BouncePadUnlocked,
     }
 }
+   
+

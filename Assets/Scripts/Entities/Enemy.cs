@@ -31,11 +31,12 @@ public class Enemy : MonoBehaviour, IObstacle
         //move the enemy to the left
         transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime);
     }
-    public void SlowPlayer()
+    public void InteractWithPlayer()
     {
-
+        //Guard Slows the Player Down
         if (targetRb.velocity.magnitude < 10)
         {
+            targetRb.velocity = Vector3.zero;
             Debug.Log("Guard has caught you");
             Destroy(targetRb);
         }
