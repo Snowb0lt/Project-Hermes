@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D _playerRb;
     [SerializeField] private bool _isLaunched;
 
     //Base Stats
@@ -20,13 +21,15 @@ public class Player : MonoBehaviour
 
     //Dependencies
     [SerializeField] private PlayerData _playerData;
-
+    [SerializeField] private Rigidbody2D _playerRb;
+    [SerializeField] private Ground _ground;
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb.GetComponent<Rigidbody2D>();
         _playerData = FindObjectOfType<PlayerData>();
+        _ground = FindObjectOfType<Ground>();
         _isLaunched = false;
     }
 
@@ -54,7 +57,7 @@ public class Player : MonoBehaviour
             
         }
         //Affect Player Bounciness
-        _bounciness.bounciness = _bounciness.bounciness + _playerData.UpgradeDictionary[PlayerData.Stats.Bounciness];
+        
         
     }
     /// <summary>
@@ -68,16 +71,29 @@ public class Player : MonoBehaviour
         if (_isLaunched && obstacle != null)
         {
             //hit an obstacle
-            if (_playerRb.velocity.x > 0)
+            if (_playerRb.velocity.x > 2)
             {
                 obstacle.InteractWithPlayer();
             }
-            if (_playerRb.velocity.x <= 0)
+            if (_playerRb.velocity.x <= 2)
             {
-                StopThePlayer();
+                CheckIfPlayerGrounded(collision);
             }
         }
     }
+
+    private void CheckIfPlayerGrounded(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<IGroundable>() != null)
+        {
+            StopThePlayer();
+        }
+        else
+        {
+            Debug.Log("Non-grounding target hit");
+        }
+    }
+
     private void StopThePlayer()
     {
         _playerRb.velocity = Vector2.zero;
@@ -97,15 +113,23 @@ public class Player : MonoBehaviour
         //prevent the player from rolling indefinitely
         if (collision.gameObject.CompareTag("Ground") && _isLaunched && GameManager._instance._distanceFromStart >= 5)
         {
-            if (_playerRb.velocity.x > 0)
+            _groundedTimer += Time.deltaTime;
+            if (_playerRb.velocity.x > 2)
             {
-                _playerRb.velocity = new Vector2(_playerRb.velocity.x - _bounciness.friction, 0) * Time.deltaTime;
+                _playerRb.velocity = new Vector2(_playerRb.velocity.x - _bounciness.friction, (1 * _bounciness.bounciness + _playerData.UpgradeDictionary[PlayerData.Stats.Bounciness])) * Time.deltaTime;
             }
-            else
+            if (_playerRb.velocity.x <=2 && _groundedTimer >=0.5)
             {
                 StopThePlayer();
             }
 
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) 
+        {
+            _groundedTimer = 0;
         }
     }
 }

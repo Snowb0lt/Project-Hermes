@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Enemy : MonoBehaviour, IObstacle
+public class Enemy : MonoBehaviour, IObstacle, IGroundable
 {
     //Interaction as an obstacle
     [SerializeField] private float amountSlowed;

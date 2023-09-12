@@ -122,8 +122,6 @@ public class GameManager : MonoBehaviour
     public void GetDistanceFromStart()
     {
 
-        Debug.Log($"The distance from start is {_distanceFromStart}m");
-
         //Convert that into money
 
         _moneyEarned = Mathf.FloorToInt(_distanceFromStart / 6);
