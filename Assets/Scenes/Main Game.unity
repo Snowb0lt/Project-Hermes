@@ -2310,7 +2310,7 @@ Transform:
   m_GameObject: {fileID: 1757757526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.72, y: -1.7, z: 0}
+  m_LocalPosition: {x: -2.72, y: -1.859, z: 0}
   m_LocalScale: {x: 1.6878, y: 2.3565, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2328,7 +2328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7171819cd87aac4faae69cad3451b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerRb: {fileID: 1757757530}
   _isLaunched: 0
   _baseLaunchForce: 25
   _finalLaunchForce: 0
@@ -2400,6 +2399,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _playerData: {fileID: 0}
+  _playerRb: {fileID: 1757757530}
+  _ground: {fileID: 1488475830}
 --- !u!50 &1757757530
 Rigidbody2D:
   serializedVersion: 4
