@@ -57,6 +57,7 @@ public class ShopManager : MonoBehaviour
     /// <param name="item"></param>
     private void BuyItem(int cost, PlayerData.Stats item, float upgradeAmount)
     {
+        //Make an equation cost = cost * (1 + number of times the item was purchased) later to increase the cost of the item in increments
         if (_totalMoney >= cost)
         {
             _totalMoney -= cost;

@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour, IObstacle
     {
         target = GameObject.Find("Player");
         targetRb = target.gameObject.GetComponent<Rigidbody2D>();
+        transform.position = GameObject.Find("Ground").transform.position + new Vector3(0, 2, 0);
     }
 
     // Update is called once per frame

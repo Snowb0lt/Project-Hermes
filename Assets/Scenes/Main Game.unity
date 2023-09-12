@@ -303,15 +303,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  _spawnTime: 2
-  _spawnpoint: {fileID: 412100421}
+  _spawnTime: 1
   _playerScript: {fileID: 0}
-  _spawnOffset: 29.2
+  _spawnOffset: 31.9
+  _ground: {fileID: 1488475830}
   _player: {fileID: 1757757526}
   _playerData: {fileID: 1626702276}
   _spawnables:
   - {fileID: 2357536154502611677, guid: 5140d82cbb0e55b409cb6af2f700d313, type: 3}
   - {fileID: 6474781603942908793, guid: 12889b5aa2c57454d85c37879c979514, type: 3}
+  spawnRangeHigh: 10
   startPoint: {fileID: 145305153}
 --- !u!4 &70544086
 Transform:
@@ -718,37 +719,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408934020}
   m_CullTransparentMesh: 1
---- !u!1 &412100420
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 412100421}
-  m_Layer: 0
-  m_Name: spawnpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &412100421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412100420}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.2, y: -0.3, z: -0.07547472}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &445114413
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1757757526}
-  _wallOffset: -7.56
+  _wallOffset: -10.7
 --- !u!61 &655702504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1011,7 +981,7 @@ Transform:
   m_GameObject: {fileID: 655702502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.2, y: 4.1, z: 0.1045447}
+  m_LocalPosition: {x: -31.1, y: 4.1, z: 0.1045447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1751,7 +1721,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.7206, y: -3.9129, z: 0}
-  m_LocalScale: {x: 38.153637, y: 2.6543627, z: 1}
+  m_LocalScale: {x: 57.673985, y: 2.6543627, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1797,7 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1757757526}
   _playerRb: {fileID: 1757757530}
-  _groundOffset: 12.46
+  _groundOffset: 20.4
   amountSlowed: 5
 --- !u!61 &1488475836
 BoxCollider2D:
@@ -2638,6 +2608,5 @@ SceneRoots:
   - {fileID: 445114416}
   - {fileID: 70544086}
   - {fileID: 655702505}
-  - {fileID: 412100421}
   - {fileID: 1499725831}
   - {fileID: 1626702277}

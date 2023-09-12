@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using UnityEngine.VFX;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,6 @@ public class GameManager : MonoBehaviour
     [Header("Spawning Conventions")]
     [SerializeField] private float time = 0.0f;
     [SerializeField] private float _spawnTime;
-    [SerializeField] private Transform _spawnpoint;
     private int _numberToSpawn;
 
     private UpgradeSO upgradeSO;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player _playerScript;
     [SerializeField] private float _spawnOffset;
 
+    [SerializeField] private GameObject _ground;
     [SerializeField] private GameObject _player;
     [SerializeField] private PlayerData _playerData;
 
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         }
 
         _player = GameObject.Find("Player");
+        _ground = GameObject.Find("Ground");
         _playerData = PlayerData.FindObjectOfType<PlayerData>();
     }
 
@@ -53,7 +55,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void LateUpdate()
     {
-        _spawnpoint.position = new Vector2((_player.transform.position.x + _spawnOffset), _spawnpoint.position.y);
         _distanceFromStart = Mathf.FloorToInt(Vector2.Distance(startPoint.transform.position, _player.transform.position));
     }
 
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private float spawnRangeHigh;
     private void SpawnObjects()
     {
         AddToSpawning();
@@ -98,7 +100,8 @@ public class GameManager : MonoBehaviour
                 //Generate a random number to select what spawns
                 _numberToSpawn = Random.Range(0, _spawnables.Count);
                 //Spawn The Object
-                GameObject.Instantiate(_spawnables[_numberToSpawn], _spawnpoint);
+                //Set the Range for how high or low the object 
+                GameObject.Instantiate(_spawnables[_numberToSpawn], new Vector3((_player.transform.position.x + _spawnOffset), (_player.transform.position.y + Random.Range(_ground.transform.position.y + 1, spawnRangeHigh))), Quaternion.identity);
                 Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");
             }
         }
