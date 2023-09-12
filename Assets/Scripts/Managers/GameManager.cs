@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
                 _numberToSpawn = Random.Range(0, _spawnables.Count);
                 //Spawn The Object
                 //Set the Range for how high or low the object 
-                GameObject.Instantiate(_spawnables[_numberToSpawn], new Vector3((_player.transform.position.x + _spawnOffset), (_player.transform.position.y + Random.Range(_ground.transform.position.y + 1, spawnRangeHigh))), Quaternion.identity);
+                GameObject.Instantiate(_spawnables[_numberToSpawn], new Vector3((_player.transform.position.x + _spawnOffset), (_player.transform.position.y + Random.Range(_ground.transform.position.y + 2, spawnRangeHigh))), Quaternion.identity);
                 Debug.Log($"{_spawnables[_numberToSpawn].name} has spawned");
             }
         }

@@ -32,4 +32,13 @@ public class Ground : MonoBehaviour, IObstacle
         //Slow the Player Down upon impact
         _playerRb.AddForce(new Vector2(-amountSlowed, 0), ForceMode2D.Impulse);
     }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.rigidbody.AddForce(new Vector2(0, -0.5f), ForceMode2D.Impulse);
+        }
+    }
 }

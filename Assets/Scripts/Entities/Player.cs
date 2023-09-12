@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _playerRb;
-    [SerializeField] private bool _isLaunched = false;
+    [SerializeField] private bool _isLaunched;
 
     //Base Stats
     [SerializeField] private float _baseLaunchForce = 25f;
@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     {
         _playerRb.GetComponent<Rigidbody2D>();
         _playerData = FindObjectOfType<PlayerData>();
+        _isLaunched = false;
     }
 
     // Update is called once per frame
@@ -34,7 +35,6 @@ public class Player : MonoBehaviour
     {
         //Launch The Kobold
         KoboldLaunched();
-
     }
 
     private void KoboldLaunched()
@@ -68,11 +68,11 @@ public class Player : MonoBehaviour
         if (_isLaunched && obstacle != null)
         {
             //hit an obstacle
-            if (_playerRb.velocity.x > 2.0f)
+            if (_playerRb.velocity.x > 0)
             {
                 obstacle.InteractWithPlayer();
             }
-            if (_playerRb.velocity.x <= 2)
+            if (_playerRb.velocity.x <= 0)
             {
                 StopThePlayer();
             }
@@ -89,5 +89,23 @@ public class Player : MonoBehaviour
 
         Debug.Log("Player has Stopped");
         Destroy(this);
+    }
+
+    private float _groundedTimer;
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        //prevent the player from rolling indefinitely
+        if (collision.gameObject.CompareTag("Ground") && _isLaunched && GameManager._instance._distanceFromStart >= 5)
+        {
+            if (_playerRb.velocity.x > 0)
+            {
+                _playerRb.velocity = new Vector2(_playerRb.velocity.x - _bounciness.friction, 0) * Time.deltaTime;
+            }
+            else
+            {
+                StopThePlayer();
+            }
+
+        }
     }
 }

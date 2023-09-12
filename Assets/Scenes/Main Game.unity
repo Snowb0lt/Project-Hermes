@@ -303,9 +303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  _spawnTime: 1
+  _spawnTime: 2
   _playerScript: {fileID: 0}
-  _spawnOffset: 31.9
+  _spawnOffset: 45
   _ground: {fileID: 1488475830}
   _player: {fileID: 1757757526}
   _playerData: {fileID: 1626702276}
@@ -849,7 +849,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.4694257
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1757757528}
-  _cameraOffset: {x: 5.96, y: 1.47, z: -1.23}
+  _cameraOffset: {x: 9.16, y: 4.16, z: -1.23}
   _camera: {fileID: 0}
 --- !u!1 &655702502
 GameObject:
