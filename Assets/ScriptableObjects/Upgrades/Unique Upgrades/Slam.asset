@@ -18,5 +18,7 @@ MonoBehaviour:
   _upgradeDescription: '"With two clicks of your heels, these enchanted boots will
     bring you straight to the ground. They''ll deactivate on impact, so that''ll
     give you some extra air.. Wouldn''t wanna be the guy underneath!"'
-  _statToUpgrade: 0
-  _upgradeAmount: 0
+  _statToUpgrade: 4
+  _upgradeAmount: 1
+  _upgradeUnlocked: 0
+  _unlockedSpawnable: {fileID: 0}

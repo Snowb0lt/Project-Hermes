@@ -12,11 +12,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _TotalMoneyText;
     [SerializeField] private TMP_Text _MoneyEarnedText;
     [SerializeField] private GameObject _statsScreen;
-    
 
+    private PlayerData _playerData;
 
     public static UIManager _instance;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        _playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+    }
     void Start()
     {
         if (_instance == null || _instance != this)
@@ -29,7 +33,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters";
-        if (PlayerPrefs.GetInt("Highest Distance") < GameManager._instance._distanceFromStart)
+        if (_playerData._longestDistance < GameManager._instance._distanceFromStart)
         {
             _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters - New Record!";
         }

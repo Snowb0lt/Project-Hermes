@@ -17,5 +17,7 @@ MonoBehaviour:
   _upgradeCost: 50
   _upgradeDescription: '"Need a boost in the air? Get a thruster! Need more boost?
     Get more thrusters! Simple math, I know!"'
-  _statToUpgrade: 0
-  _upgradeAmount: 0
+  _statToUpgrade: 6
+  _upgradeAmount: 1
+  _upgradeUnlocked: 0
+  _unlockedSpawnable: {fileID: 0}

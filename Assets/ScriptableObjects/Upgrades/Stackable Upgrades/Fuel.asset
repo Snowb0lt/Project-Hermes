@@ -17,5 +17,7 @@ MonoBehaviour:
   _upgradeCost: 25
   _upgradeDescription: '"Find that you''re running out of gas midair? Boost for longer!
     Buy an extra vial or two... Just, uh, don''t go near open flames."'
-  _statToUpgrade: 0
-  _upgradeAmount: 0
+  _statToUpgrade: 7
+  _upgradeAmount: 1
+  _upgradeUnlocked: 0
+  _unlockedSpawnable: {fileID: 0}
