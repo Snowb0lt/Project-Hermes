@@ -1765,6 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e381afb2613c40844b77bf012165d4f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerScript: {fileID: 1757757529}
   _player: {fileID: 1757757526}
   _playerRb: {fileID: 1757757530}
   _groundOffset: 20.4

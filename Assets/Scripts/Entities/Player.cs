@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void StopThePlayer()
+    public void StopThePlayer()
     {
         _playerRb.velocity = Vector2.zero;
         Destroy(_playerRb);
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
             {
                 _playerRb.velocity = new Vector2(_playerRb.velocity.x - _bounciness.friction, (1 * _bounciness.bounciness + _playerData.UpgradeDictionary[PlayerData.Stats.Bounciness])) * Time.deltaTime;
             }
-            if (_playerRb.velocity.x <=2 && _groundedTimer >=0.5)
+            if (_playerRb.velocity.x <= 2 && _groundedTimer >= 0.5)
             {
                 StopThePlayer();
             }
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) 
+        if (collision.gameObject.CompareTag("Ground"))
         {
             _groundedTimer = 0;
         }
