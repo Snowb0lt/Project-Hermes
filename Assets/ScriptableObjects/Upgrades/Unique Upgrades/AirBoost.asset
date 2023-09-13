@@ -17,5 +17,7 @@ MonoBehaviour:
   _upgradeCost: 20
   _upgradeDescription: '"I know a few mages. With a little payment, I can have them
     conjure gusts of wind to help push you forward!"'
-  _statToUpgrade: 0
-  _upgradeAmount: 0
+  _statToUpgrade: 3
+  _upgradeAmount: 1
+  _upgradeUnlocked: 0
+  _unlockedSpawnable: {fileID: 616876200223135674, guid: b7289a4d966d5584d8bf8515c8446918, type: 3}

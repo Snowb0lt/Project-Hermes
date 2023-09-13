@@ -74,6 +74,11 @@ public class PlayerData : MonoBehaviour
         LaunchForce,
         Bounciness,
         BouncePadUnlocked,
+        AirBoost,
+        Slam,
+        Wings,
+        Thrusters,
+        Fuel,
     }
 }
    
