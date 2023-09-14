@@ -12,12 +12,12 @@ public class Wings : MonoBehaviour
         _playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
     }
 
-    private void Start()
+    //trigger what happens from the Player script event
+    private void ActivateWings()
     {
         if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings))
         {
-            gameObject.SetActive(true);
-            _areWingsEnabled = true;
+            
         }
     }
 }

@@ -132,4 +132,17 @@ public class Player : MonoBehaviour
             _groundedTimer = 0;
         }
     }
+
+
+
+    public void WingControls()
+    {
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings) && _isLaunched)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+
+            }
+        }
+    }
 }
