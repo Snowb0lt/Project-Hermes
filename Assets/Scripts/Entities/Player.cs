@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     //Unity Events
     [SerializeField] private UnityEvent GameBegun;
     [SerializeField] private UnityEvent ShowStats;
+    [SerializeField] private UnityEvent WingsOut;
+    [SerializeField] private UnityEvent WingsIn;
+    [SerializeField] private UnityEvent AirDash;
 
     //Dependencies
     [SerializeField] private PlayerData _playerData;
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
     {
         //Launch The Kobold
         KoboldLaunched();
+        //Check For Unique Upgrades
+        WingControls();
     }
 
     private void KoboldLaunched()
@@ -70,6 +75,7 @@ public class Player : MonoBehaviour
         
         if (_isLaunched && obstacle != null)
         {
+            WingsIn?.Invoke();
             //hit an obstacle
             if (_playerRb.velocity.x > 2)
             {
@@ -134,14 +140,19 @@ public class Player : MonoBehaviour
     }
 
 
-
+    
     public void WingControls()
     {
-        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings) && _isLaunched)
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings) && _isLaunched == true)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.A))
             {
+                WingsOut.Invoke();
+            }
 
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                WingsIn.Invoke();
             }
         }
     }

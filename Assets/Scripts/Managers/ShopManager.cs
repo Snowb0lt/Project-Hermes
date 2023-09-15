@@ -63,9 +63,13 @@ public class ShopManager : MonoBehaviour
             _totalMoney -= cost;
             if (!_playerData.UpgradeDictionary.ContainsKey(item))
             {
-                _playerData.UpgradeDictionary.TryAdd(item, upgradeAmount);
-                _playerData.UnlockUpgrade(upgradeSO._unlockedSpawnable);
-                //_playerData.UnlockUpgrade(upgradeScriptableObjects._upgradeUnlocked, item);
+                _playerData.UpgradeDictionary.Add(item, upgradeAmount);
+                Debug.Log($"{item} has been added! Dictionary now contains {_playerData.UpgradeDictionary[item]}");
+                
+                if (upgradeSO._unlockedSpawnable != null)
+                {
+                    _playerData.UnlockSpawnable(upgradeSO._unlockedSpawnable);
+                }
 
             }
             else

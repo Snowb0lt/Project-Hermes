@@ -64,10 +64,11 @@ public class PlayerData : MonoBehaviour
     /// </summary>
     /// <param name="ObjectUnlocked"></param>
     /// <param name="ObjectInDictionary"></param>
-    public void UnlockUpgrade(GameObject unlockedSpawnable)
+    public void UnlockSpawnable(GameObject unlockedSpawnable)
     {
             UnlockedSpawnables.Add(unlockedSpawnable);
             Debug.Log($"{unlockedSpawnable} is unlocked!");
+
     }
     public enum Stats
     {
