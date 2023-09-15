@@ -78,15 +78,16 @@ public class Player : MonoBehaviour
         if (_isLaunched && obstacle != null)
         {
             WingsIn?.Invoke();
+            obstacle.InteractWithPlayer();
             //hit an obstacle
-            if (_playerRb.velocity.x > 2)
-            {
-                obstacle.InteractWithPlayer();
-            }
-            if (_playerRb.velocity.x <= 2)
-            {
-                //CheckIfPlayerGrounded(collision);
-            }
+            //if (_playerRb.velocity.x > 2)
+            //{
+            //    obstacle.InteractWithPlayer();
+            //}
+            //if (_playerRb.velocity.x <= 2)
+            //{
+            //    //CheckIfPlayerGrounded(collision);
+            //}
         }
     }
 
@@ -174,13 +175,13 @@ public class Player : MonoBehaviour
 
         //Air Dash
         
-        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.AirBoost) && _isLaunched == true)
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.AirDash) && _isLaunched == true)
         {
             if (Input.GetKeyDown(KeyCode.D) && dashAbilityCooldown > dashAbilityCooldownTimer)
             {
                 //Start the cooldown timer for double press;
                 dashButtonTimer += Time.deltaTime;
-                if (Input.GetKeyDown(KeyCode.D) && dashAbilityCooldownTimer <= dashButtonCooldown)
+                if (Input.GetKeyDown(KeyCode.D) && dashButtonTimer<= dashButtonCooldown)
                 {
                     AirDash.Invoke();
                     Debug.Log("Woosh!)");

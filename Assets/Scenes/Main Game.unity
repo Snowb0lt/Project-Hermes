@@ -613,11 +613,11 @@ Transform:
   m_GameObject: {fileID: 259168380}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.8834831, w: 0.46846315}
-  m_LocalPosition: {x: -0.4244, y: 0.1301, z: 0}
+  m_LocalPosition: {x: -0.4244, y: 0.13010001, z: 0}
   m_LocalScale: {x: 1.378582, y: 0.51530504, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1757757528}
+  m_Father: {fileID: 759835186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -124.131}
 --- !u!212 &259168382
 SpriteRenderer:
@@ -688,6 +688,50 @@ MonoBehaviour:
   _wingsObject: {fileID: 259168380}
   _player: {fileID: 1757757526}
   _playerRb: {fileID: 1757757530}
+--- !u!1 &361632091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 361632093}
+  - component: {fileID: 361632092}
+  m_Layer: 0
+  m_Name: Airdash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &361632092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361632091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bead9a5d3b8d10949bb8709326adb2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &361632093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361632091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759835186}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408934020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1179,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.68364716, y: 22.434536}
   m_EdgeRadius: 0
+--- !u!1 &759835185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759835186}
+  m_Layer: 0
+  m_Name: Upgrades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759835186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759835185}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 259168381}
+  - {fileID: 361632093}
+  m_Father: {fileID: 1757757528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863518902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,7 +2541,7 @@ Transform:
   m_LocalScale: {x: 1.6878, y: 2.3565, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 259168381}
+  - {fileID: 759835186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1757757529
@@ -2581,10 +2658,23 @@ MonoBehaviour:
         m_CallState: 2
   AirDash:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 361632092}
+        m_TargetAssemblyTypeName: Airdash, Assembly-CSharp
+        m_MethodName: ActivateAirDash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _playerData: {fileID: 0}
   _playerRb: {fileID: 1757757530}
   _ground: {fileID: 1488475835}
+  dashAbilityCooldown: 5
   dashAbilityCooldownTimer: 5
 --- !u!50 &1757757530
 Rigidbody2D:
