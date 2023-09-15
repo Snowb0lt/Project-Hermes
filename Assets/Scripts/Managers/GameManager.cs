@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> _spawnables = new List<GameObject>();
     void Start()
-    {
+    {        
         if (_instance == null || _instance != this)
         {
             Destroy(_instance);

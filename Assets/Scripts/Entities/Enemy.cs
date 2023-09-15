@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour, IObstacle, IGroundable
     //Interaction as an obstacle
     [SerializeField] private float amountSlowed;
     [SerializeField] private Rigidbody2D enemyRb;
-    [SerializeField] private GameObject target;
+    [SerializeField] private Player target;
     [SerializeField] private Rigidbody2D targetRb;
 
     //Specifically to the guard
@@ -17,12 +17,12 @@ public class Enemy : MonoBehaviour, IObstacle, IGroundable
     private void Awake()
     {
         enemyRb = GetComponent<Rigidbody2D>();
+        target = FindObjectOfType<Player>();
+        targetRb = target.gameObject.GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        target = GameObject.Find("Player");
-        targetRb = target.gameObject.GetComponent<Rigidbody2D>();
         transform.position = GameObject.Find("Ground").transform.position + new Vector3(0, 2, 0);
     }
 
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour, IObstacle, IGroundable
         {
             targetRb.velocity = Vector3.zero;
             Debug.Log("Guard has caught you");
-            Destroy(targetRb);
+            target.StopThePlayer();
         }
         else
         {

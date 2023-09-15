@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     //Unity Events
     [SerializeField] private UnityEvent GameBegun;
     [SerializeField] private UnityEvent ShowStats;
+
+    //Abilities
     [SerializeField] private UnityEvent WingsOut;
     [SerializeField] private UnityEvent WingsIn;
     [SerializeField] private UnityEvent AirDash;
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
         //Launch The Kobold
         KoboldLaunched();
         //Check For Unique Upgrades
-        WingControls();
+        UniqueUpgrades();
     }
 
     private void KoboldLaunched()
@@ -83,22 +85,22 @@ public class Player : MonoBehaviour
             }
             if (_playerRb.velocity.x <= 2)
             {
-                CheckIfPlayerGrounded(collision);
+                //CheckIfPlayerGrounded(collision);
             }
         }
     }
 
-    private void CheckIfPlayerGrounded(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<IGroundable>() != null)
-        {
-            StopThePlayer();
-        }
-        else
-        {
-            Debug.Log("Non-grounding target hit");
-        }
-    }
+    //private void CheckIfPlayerGrounded(Collision2D collision)
+    //{
+    //    if (collision.gameObject.GetComponent<IGroundable>() != null)
+    //    {
+    //        StopThePlayer();
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Non-grounding target hit");
+    //    }
+    //}
 
     public void StopThePlayer()
     {
@@ -139,21 +141,62 @@ public class Player : MonoBehaviour
         }
     }
 
+    [Header("Unique Abilities")]
+    //Parameters for Wings
+    private bool areWingsOut = false;
 
-    
-    public void WingControls()
+    //Parameters for Airdash
+    private float dashButtonTimer;
+    private float dashButtonCooldown = 0.5f;
+    [SerializeField]private float dashAbilityCooldown = 5;
+    [SerializeField]private float dashAbilityCooldownTimer;
+    public void UniqueUpgrades()
     {
+        //Wings
         if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings) && _isLaunched == true)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                WingsOut.Invoke();
+                if (!areWingsOut)
+                {
+                    WingsOut.Invoke();
+                    areWingsOut = true;
+                }
+
+                if (areWingsOut)
+                {
+                    areWingsOut = false;
+                    WingsIn.Invoke();
+                }
             }
 
-            if (Input.GetKeyDown(KeyCode.D))
+        }
+
+        //Air Dash
+        
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.AirBoost) && _isLaunched == true)
+        {
+            if (Input.GetKeyDown(KeyCode.D) && dashAbilityCooldown > dashAbilityCooldownTimer)
             {
-                WingsIn.Invoke();
+                //Start the cooldown timer for double press;
+                dashButtonTimer += Time.deltaTime;
+                if (Input.GetKeyDown(KeyCode.D) && dashAbilityCooldownTimer <= dashButtonCooldown)
+                {
+                    AirDash.Invoke();
+                    Debug.Log("Woosh!)");
+
+                    //Start Cooldown for Dash
+                    dashAbilityCooldown = 0;
+                }
+               
             }
+            //Resets the Timer
+            if (dashButtonTimer > dashButtonCooldown)
+            {
+                dashButtonTimer = 0;
+            }
+
+            dashAbilityCooldown += Time.deltaTime;
         }
     }
 }

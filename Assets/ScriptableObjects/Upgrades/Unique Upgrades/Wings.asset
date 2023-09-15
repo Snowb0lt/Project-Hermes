@@ -20,5 +20,4 @@ MonoBehaviour:
     of your own! Won''t fly, sure, but they''ll help you glide."'
   _statToUpgrade: 5
   _upgradeAmount: 1
-  _upgradeUnlocked: 0
   _unlockedSpawnable: {fileID: 0}
