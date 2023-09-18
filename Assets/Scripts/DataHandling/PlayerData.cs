@@ -17,19 +17,8 @@ public class PlayerData : MonoBehaviour
     public int _coins;
     public int _dayNumber;
     public int _currentDay = 0;
-    public int _daysLeft;
+    [SerializeField]public int _daysLeft = 100;
     public int _longestDistance;
-
-    //DayManager
-    public void AddToCurrentDay()
-    {
-        _currentDay++;
-    }
-
-    public void TotalDays()
-    {
-
-    }
 
     //Player Upgrades
     public Dictionary<Stats, float> UpgradeDictionary = new Dictionary<Stats, float>()
@@ -44,6 +33,29 @@ public class PlayerData : MonoBehaviour
     };
     public int _launchForce = 1;
     public int _PlayerBounce = 1;
+
+    //DayManager
+    public void AddToCurrentDay()
+    {
+        _currentDay++;
+    }
+
+    public void TotalDays()
+    {
+
+        if (!UpgradeDictionary.ContainsKey(Stats.AddDays))
+        {
+            return;
+        }
+        else
+        {
+            _daysLeft += Mathf.RoundToInt(UpgradeDictionary[Stats.AddDays]);
+        }
+    }
+    public void CountDownDays()
+    {
+        _daysLeft --;
+    }
 
     //Link to Scriptable Object
     public UpgradeSO upgradeSO;

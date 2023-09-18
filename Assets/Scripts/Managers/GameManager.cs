@@ -161,6 +161,7 @@ public class GameManager : MonoBehaviour
 
     public void MoveToShop()
     {
+        startANewRun.Invoke();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }

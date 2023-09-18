@@ -38,7 +38,8 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _coinCounter.text = _totalMoney.ToString(); 
+        _coinCounter.text = _totalMoney.ToString();
+        _daysLeftText.text = _playerData._daysLeft.ToString() + " Days Left";
     }
 
 
@@ -47,7 +48,7 @@ public class ShopManager : MonoBehaviour
     /// </summary>
     private int _totalMoney;
     [SerializeField] private TMP_Text _coinCounter;
-    
+    [SerializeField] private TMP_Text _daysLeftText;
 
     /// <summary>
     /// Handle the Buying and adding of Upgrades to Dictionary Values
@@ -113,4 +114,10 @@ public class ShopManager : MonoBehaviour
         SaveStats();
         SceneManager.LoadScene(0);
     }
+
+    /// <summary>
+    /// Display How many days left in the shop
+    /// </summary>
+
+
 }

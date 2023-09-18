@@ -309,6 +309,33 @@ MonoBehaviour:
   _ground: {fileID: 1488475830}
   _player: {fileID: 1757757526}
   _playerData: {fileID: 1626702276}
+  startANewRun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1626702276}
+        m_TargetAssemblyTypeName: PlayerData, Assembly-CSharp
+        m_MethodName: AddToCurrentDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1626702276}
+        m_TargetAssemblyTypeName: PlayerData, Assembly-CSharp
+        m_MethodName: CountDownDays
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _spawnables:
   - {fileID: 2357536154502611677, guid: 5140d82cbb0e55b409cb6af2f700d313, type: 3}
   - {fileID: 6474781603942908793, guid: 12889b5aa2c57454d85c37879c979514, type: 3}
@@ -341,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba2d781bc112bb4d9199f2591c9621d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DayText: {fileID: 0}
+  _DayText: {fileID: 210487867}
   _DistanceText: {fileID: 2026296031}
   _TotalMoneyText: {fileID: 1034103655}
   _MoneyEarnedText: {fileID: 969694632}
@@ -469,7 +496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &210487866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2300,7 +2327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coins: 0
   _dayNumber: 0
-  _daysLeft: 0
+  _currentDay: 0
+  _daysLeft: 100
   _longestDistance: 0
   UnlockedSpawnables: []
   _launchForce: 1
