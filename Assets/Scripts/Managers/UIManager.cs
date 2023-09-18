@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters";
-        if (_playerData._longestDistance < GameManager._instance._distanceFromStart)
+        if (_playerData._longestDistance < GameManager._instance._distanceFromStart && _playerData._longestDistance != 0)
         {
             _DistanceText.text = GameManager._instance._distanceFromStart.ToString() + " Meters - New Record!";
         }

@@ -119,12 +119,21 @@ public class GameManager : MonoBehaviour
     public int _moneyEarned { get; private set; }
     public int _totalMoney { get; private set; }
     [SerializeField] private GameObject startPoint;
+
+    private int _CoinDivider;
     public void GetDistanceFromStart()
     {
 
         //Convert that into money
-
-        _moneyEarned = Mathf.FloorToInt(_distanceFromStart / 6);
+        if (!_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.GoldPerRun))
+        {
+            _CoinDivider = 0;
+        }
+        else
+        {
+            _CoinDivider = Mathf.RoundToInt(_playerData.UpgradeDictionary[PlayerData.Stats.GoldPerRun]);
+        }
+        _moneyEarned = (_distanceFromStart / (10 - _CoinDivider));
         Debug.Log($"Earned a total of {_moneyEarned} this round");
 
         //Add to total money

@@ -12,8 +12,14 @@ public class UpgradeSO : ScriptableObject
 
 
     public PlayerData.Stats _statToUpgrade;
+    public PlayerData _playerData;
     public float _upgradeAmount;
 
     public GameObject _unlockedSpawnable;
 
+    //public int _finalUpgradeCost;
+    //public void CostAdjustment()
+    //{
+    //    _finalUpgradeCost = Mathf.RoundToInt(_upgradeCost + (1 * _playerData.UpgradeDictionary[_statToUpgrade]));
+    //}
 }

@@ -81,6 +81,9 @@ public class PlayerData : MonoBehaviour
         Wings,
         Thrusters,
         Fuel,
+        AddDays,
+        GoldPerRun,
+
     }
 }
    

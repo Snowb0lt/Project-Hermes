@@ -305,7 +305,7 @@ MonoBehaviour:
   time: 0
   _spawnTime: 2
   _playerScript: {fileID: 0}
-  _spawnOffset: 45
+  _spawnOffset: 80
   _ground: {fileID: 1488475830}
   _player: {fileID: 1757757526}
   _playerData: {fileID: 1626702276}
@@ -1945,8 +1945,8 @@ Transform:
   m_GameObject: {fileID: 1488475830}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.7206, y: -3.9129, z: 0}
-  m_LocalScale: {x: 57.673985, y: 2.6543627, z: 1}
+  m_LocalPosition: {x: 9.1888, y: -3.9129, z: 0}
+  m_LocalScale: {x: 64.61217, y: 2.6543627, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1993,7 +1993,7 @@ MonoBehaviour:
   _playerScript: {fileID: 1757757529}
   _player: {fileID: 1757757526}
   _playerRb: {fileID: 1757757530}
-  _groundOffset: 20.4
+  _groundOffset: 25
   amountSlowed: 5
 --- !u!61 &1488475836
 BoxCollider2D:

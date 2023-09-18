@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb41467a2c79114ca90bb944dcf0a0b, type: 3}
+  m_Name: ExtendTime
+  m_EditorClassIdentifier: 
+  UpgradeIcon: {fileID: 0}
+  _upgradeName: Throw A Feast
+  _upgradeCost: 200
+  _upgradeDescription: '"Wanna do something nice for your tribe? Buy these supplies
+    and have a feast! They''re guarenteed to be merry tonight, and of course.. Ehehe,
+    hungover Kobolds tunnel slower!"'
+  _statToUpgrade: 9
+  _playerData: {fileID: 0}
+  _upgradeAmount: 1
+  _unlockedSpawnable: {fileID: 0}
