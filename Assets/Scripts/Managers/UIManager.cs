@@ -44,5 +44,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0.0f;
         _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString() + " Coins Earned";
         _TotalMoneyText.text = PlayerData._instance._coins + " Total Coins";
+        _DayText.text = "Day " + PlayerData._instance._currentDay;
     }
 }

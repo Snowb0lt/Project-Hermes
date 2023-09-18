@@ -16,8 +16,20 @@ public class PlayerData : MonoBehaviour
 
     public int _coins;
     public int _dayNumber;
+    public int _currentDay = 0;
     public int _daysLeft;
     public int _longestDistance;
+
+    //DayManager
+    public void AddToCurrentDay()
+    {
+        _currentDay++;
+    }
+
+    public void TotalDays()
+    {
+
+    }
 
     //Player Upgrades
     public Dictionary<Stats, float> UpgradeDictionary = new Dictionary<Stats, float>()

@@ -17,6 +17,18 @@ public class UpgradeSO : ScriptableObject
 
     public GameObject _unlockedSpawnable;
 
+    public int _upgradeCap;
+
+    public void UpgradeCapacity()
+    {
+
+    }
+
+    public void UpgradePrerequisites()
+    {
+
+    }
+
     //public int _finalUpgradeCost;
     //public void CostAdjustment()
     //{

@@ -1,12 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-using UnityEngine.VFX;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _ground;
     [SerializeField] private GameObject _player;
     [SerializeField] private PlayerData _playerData;
+
+    [SerializeField] private UnityEvent startANewRun;
 
     //Check if the game has started
     private bool _isGameGoing = false;
@@ -156,6 +154,7 @@ public class GameManager : MonoBehaviour
 
     public void NewRun()
     {
+        startANewRun.Invoke();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
@@ -165,4 +164,5 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
+
 }

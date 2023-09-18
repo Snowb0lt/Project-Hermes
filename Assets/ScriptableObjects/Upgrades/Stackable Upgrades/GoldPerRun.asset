@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeIcon: {fileID: 0}
   _upgradeName: Gold Per Run
-  _upgradeCost: 5
+  _upgradeCost: 15
   _upgradeDescription: '"With these tools, you can give them to some of your friends.
     ''Finding'' gold around will be a whole lot easier, meaning more money for m-
     I mean, more money for you!... To give to me!"'

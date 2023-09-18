@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine.Events;
 
 public class ShopManager : MonoBehaviour
 {
@@ -16,8 +13,10 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField]private PlayerData _playerData;
 
+    [SerializeField] private UnityEvent startANewRun;
 
     public static ShopManager _instance;
+
     private void Awake()
     {
         
@@ -77,7 +76,7 @@ public class ShopManager : MonoBehaviour
                 _playerData.UpgradeDictionary[item] += upgradeAmount;
             }
 
-            Debug.Log($"{item} has been bought at {cost}, current value of Dictionary is {_playerData.UpgradeDictionary[item].ToString()}");
+            Debug.Log($"{item} has been bought at {cost}, current value of Dictionary is {_playerData.UpgradeDictionary[item].ToString()}");    
         }
         else
         {
@@ -110,6 +109,7 @@ public class ShopManager : MonoBehaviour
 
     public void BackToLaunch()
     {
+        startANewRun.Invoke();
         SaveStats();
         SceneManager.LoadScene(0);
     }
