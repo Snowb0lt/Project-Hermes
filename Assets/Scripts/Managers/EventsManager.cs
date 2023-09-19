@@ -19,4 +19,16 @@ public class EventsManager : MonoBehaviour
     {
         if (onDayExtended != null) onDayExtended(); 
     }
+
+    public event Action EndingTheGame;
+    public void EndTheGame()
+    {
+
+    }
+
+    public event Action spawnTheWall;
+    public void SpawnTheWall()
+    {
+
+    }
 }
