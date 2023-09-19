@@ -35,26 +35,10 @@ public class PlayerData : MonoBehaviour
     public int _PlayerBounce = 1;
 
     //DayManager
-    public void AddToCurrentDay()
+    public void ChangeTheDays()
     {
         _currentDay++;
-    }
-
-    public void TotalDays()
-    {
-
-        if (!UpgradeDictionary.ContainsKey(Stats.AddDays))
-        {
-            return;
-        }
-        else
-        {
-            _daysLeft += Mathf.RoundToInt(UpgradeDictionary[Stats.AddDays]);
-        }
-    }
-    public void CountDownDays()
-    {
-        _daysLeft --;
+        _daysLeft--;
     }
 
     //Link to Scriptable Object

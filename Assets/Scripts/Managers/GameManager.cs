@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         _player = GameObject.Find("Player");
         _ground = GameObject.Find("Ground");
         _playerData = PlayerData.FindObjectOfType<PlayerData>();
+
+        
     }
 
     void Update()
@@ -154,16 +156,20 @@ public class GameManager : MonoBehaviour
 
     public void NewRun()
     {
-        startANewRun.Invoke();
+        CountTheDay();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }
 
     public void MoveToShop()
     {
-        startANewRun.Invoke();
+        CountTheDay();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
 
+    public void CountTheDay()
+    {
+        _playerData.ChangeTheDays();
+    }
 }

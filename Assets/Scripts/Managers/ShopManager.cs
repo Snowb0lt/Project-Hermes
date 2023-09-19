@@ -26,10 +26,12 @@ public class ShopManager : MonoBehaviour
             _instance = this;
         }
         _playerData = PlayerData.FindObjectOfType<PlayerData>();
+
+        EventsManager._instance.onDayExtended += OnDaysExtended;
     }
 
     void Start()
-    {
+    { 
         _totalMoney = _playerData._coins;
     }
 
@@ -93,9 +95,11 @@ public class ShopManager : MonoBehaviour
     public void BuyButton()
     {
         BuyItem(upgradeSO._upgradeCost, upgradeSO._statToUpgrade, upgradeSO._upgradeAmount);
-
         //Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
-
+        if (upgradeSO._statToUpgrade == PlayerData.Stats.AddDays)
+        {
+            OnDaysExtended();
+        }
     }
 
     /// <summary>
@@ -116,8 +120,14 @@ public class ShopManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Display How many days left in the shop
+    /// Extend the Days after buying upgrade
     /// </summary>
+    /// 
+
+    public void OnDaysExtended()
+    {
+        _playerData._daysLeft++;
+    }
 
 
 }
