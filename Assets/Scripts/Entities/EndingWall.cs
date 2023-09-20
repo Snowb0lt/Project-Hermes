@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class EndingWall : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D _playerRb;
+    [SerializeField] private Player _player;
 
     private void Awake()
     {
-        _playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        _player = GameObject.FindAnyObjectByType<Player>().GetComponent<Player>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _playerRb.velocity = Vector2.zero;
+            _player.StopThePlayer();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -29,6 +29,7 @@ public class EndingWall : MonoBehaviour
     }
     private void EndTheGame()
     {
+        Time.timeScale = 0f;
         Debug.Log("Game Has Ended. You Win!");
     }
 }

@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1757757526}
-  _wallOffset: -10.7
+  _wallOffset: -15
 --- !u!61 &655702504
 BoxCollider2D:
   m_ObjectHideFlags: 0
