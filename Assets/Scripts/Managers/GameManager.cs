@@ -45,9 +45,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
-        SpawnObjects();
-        
+        time += Time.deltaTime; 
     }
 
     /// <summary>
@@ -56,6 +54,8 @@ public class GameManager : MonoBehaviour
     private void LateUpdate()
     {
         _distanceFromStart = Mathf.FloorToInt(Vector2.Distance(startPoint.transform.position, _player.transform.position));
+        SpawnObjects();
+        EndTheGame();
     }
 
     /// <summary>
@@ -171,5 +171,20 @@ public class GameManager : MonoBehaviour
     public void CountTheDay()
     {
         _playerData.ChangeTheDays();
+    }
+
+    [Header("End Wall Spawning")]
+    [SerializeField] public int _GoalDistance;
+    [SerializeField] private GameObject endWall;
+    [SerializeField] private int endWallOffset;
+    [SerializeField] private int endWallGroundOffset;
+    private bool hasWallSpawned = false;
+    private void EndTheGame()
+    {
+        if ((_distanceFromStart >= _GoalDistance) && (hasWallSpawned == false))
+        {
+            Instantiate(endWall, new Vector2 ((_player.transform.position.x + endWallOffset), _ground.transform.position.y + endWallGroundOffset), Quaternion.identity);
+            hasWallSpawned = true;
+        }
     }
 }
