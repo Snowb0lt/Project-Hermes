@@ -20,9 +20,14 @@ public class Player : MonoBehaviour
     [SerializeField] private UnityEvent ShowStats;
 
     //Abilities
+    //Wings
     [SerializeField] private UnityEvent WingsOut;
     [SerializeField] private UnityEvent WingsIn;
+    //AirDash
     [SerializeField] private UnityEvent AirDash;
+    //Thrusters and Fuel
+    [SerializeField] private UnityEvent ThrustersBought;
+
 
     //Dependencies
     [SerializeField] private PlayerData _playerData;
@@ -79,29 +84,8 @@ public class Player : MonoBehaviour
         {
             WingsIn?.Invoke();
             obstacle.InteractWithPlayer();
-            //hit an obstacle
-            //if (_playerRb.velocity.x > 2)
-            //{
-            //    obstacle.InteractWithPlayer();
-            //}
-            //if (_playerRb.velocity.x <= 2)
-            //{
-            //    //CheckIfPlayerGrounded(collision);
-            //}
         }
     }
-
-    //private void CheckIfPlayerGrounded(Collision2D collision)
-    //{
-    //    if (collision.gameObject.GetComponent<IGroundable>() != null)
-    //    {
-    //        StopThePlayer();
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Non-grounding target hit");
-    //    }
-    //}
 
     public void StopThePlayer()
     {
