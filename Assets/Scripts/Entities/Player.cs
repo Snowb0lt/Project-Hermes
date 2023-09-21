@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -26,7 +24,8 @@ public class Player : MonoBehaviour
     //AirDash
     [SerializeField] private UnityEvent AirDash;
     //Thrusters and Fuel
-    [SerializeField] private UnityEvent ThrustersBought;
+    [SerializeField] private UnityEvent ThrustersOn;
+    [SerializeField] private UnityEvent ThrustersOff;
 
 
     //Dependencies
@@ -41,6 +40,7 @@ public class Player : MonoBehaviour
         _playerData = FindObjectOfType<PlayerData>();
         _ground = FindObjectOfType<Ground>();
         _isLaunched = false;
+        areWingsOut = false;
     }
 
     // Update is called once per frame
@@ -63,13 +63,13 @@ public class Player : MonoBehaviour
                 _isLaunched = true;
                 GameBegun?.Invoke();
                 _playerRb.AddForce(new Vector2(_finalLaunchForce, (_finalLaunchForce / 2)), ForceMode2D.Impulse);
-                
+
             }
-            
+
         }
         //Affect Player Bounciness
-        
-        
+
+
     }
 
     /// <summary>
@@ -79,10 +79,14 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IObstacle obstacle = collision.gameObject.GetComponent<IObstacle>();
-        
+
         if (_isLaunched && obstacle != null)
         {
-            WingsIn?.Invoke();
+            if (areWingsOut == true)
+            {
+                WingsIn?.Invoke();
+            }
+
             obstacle.InteractWithPlayer();
         }
     }
@@ -126,9 +130,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// TODO: Separate The Upgrades into their own Script
+    /// </summary>
     [Header("Unique Abilities")]
     //Parameters for Wings
-    public bool areWingsOut = false;
+    public bool areWingsOut;
+    [SerializeField] private GameObject _wingsObject;
 
     //Parameters for Airdash
     private float dashButtonTimer;
@@ -141,35 +149,48 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject thrusterObject;
     public void UniqueUpgrades()
     {
-        //Wings
-        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings) && _isLaunched == true)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                if (!areWingsOut)
-                {
-                    WingsOut.Invoke();
-                    areWingsOut = true;
-                }
+        WingsControls();
 
-                if (areWingsOut)
+        AirDashControls();
+
+        ThrusterControls();
+    }
+
+    private void WingsControls()
+    {
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Wings))
+        {
+            _wingsObject.SetActive(true);
+            if (_isLaunched)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
                 {
-                    areWingsOut = false;
-                    WingsIn.Invoke();
+                    //Wings Out
+                    if (!areWingsOut)
+                    {
+                        areWingsOut = true;
+                        WingsOut.Invoke();
+                    }
+                    //Retract Wings
+                    if (areWingsOut)
+                    {
+                        areWingsOut = !areWingsOut;
+                        WingsIn.Invoke();
+                    }
                 }
             }
-
         }
+    }
 
-        //Air Dash
-        
+    private void AirDashControls()
+    {
         if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.AirDash) && _isLaunched == true)
         {
             if (Input.GetKeyDown(KeyCode.D) && dashAbilityCooldown > dashAbilityCooldownTimer)
             {
                 //Start the cooldown timer for double press;
                 dashButtonTimer += Time.deltaTime;
-                if (Input.GetKeyDown(KeyCode.D) && dashButtonTimer<= dashButtonCooldown)
+                if (Input.GetKeyDown(KeyCode.D) && dashButtonTimer <= dashButtonCooldown)
                 {
                     AirDash.Invoke();
                     Debug.Log("Woosh!)");
@@ -177,7 +198,7 @@ public class Player : MonoBehaviour
                     //Start Cooldown for Dash
                     dashAbilityCooldown = 0;
                 }
-               
+
             }
             //Resets the Timer
             if (dashButtonTimer > dashButtonCooldown)
@@ -187,13 +208,30 @@ public class Player : MonoBehaviour
 
             dashAbilityCooldown += Time.deltaTime;
         }
+    }
 
-        //Thrusters
-
+    private void ThrusterControls()
+    {
         if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Thrusters))
         {
-            _thrusterScript.ThrusterControls();
             thrusterObject.SetActive(true);
+            if(!areWingsOut)
+            {
+                return;
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    ThrustersOn.Invoke();
+                }
+
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    ThrustersOff.Invoke();
+                }
+            }
+
         }
     }
 }

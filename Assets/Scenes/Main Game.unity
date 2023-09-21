@@ -341,7 +341,7 @@ MonoBehaviour:
   - {fileID: 6474781603942908793, guid: 12889b5aa2c57454d85c37879c979514, type: 3}
   spawnRangeHigh: 10
   startPoint: {fileID: 145305153}
-  _GoalDistance: 100
+  _GoalDistance: 1000
   endWall: {fileID: 2126327631969725821, guid: 733d53559a309e64eb040b9a4d38b941, type: 3}
   endWallOffset: 50
   endWallGroundOffset: 100
@@ -716,7 +716,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerData: {fileID: 1626702276}
   _areWingsEnabled: 0
-  _wingsObject: {fileID: 259168380}
   _player: {fileID: 1757757526}
   _playerRb: {fileID: 1757757530}
 --- !u!1 &361632091
@@ -2374,7 +2373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb83bc743abdc14995b71f22347a13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 50
+  _coins: 9999
   _dayNumber: 0
   _currentDay: 0
   _daysLeft: 100
@@ -2544,8 +2543,8 @@ GameObject:
   - component: {fileID: 1757757527}
   - component: {fileID: 1757757530}
   - component: {fileID: 1757757529}
-  - component: {fileID: 1757757531}
   - component: {fileID: 1757757532}
+  - component: {fileID: 1757757533}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2748,13 +2747,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ThrustersBought:
+  ThrustersOn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1920041749}
+        m_TargetAssemblyTypeName: Thruster, Assembly-CSharp
+        m_MethodName: FireThrusters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ThrustersOff:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1920041749}
+        m_TargetAssemblyTypeName: Thruster, Assembly-CSharp
+        m_MethodName: StopThrusters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _playerData: {fileID: 0}
   _playerRb: {fileID: 1757757530}
   _ground: {fileID: 1488475835}
   areWingsOut: 0
+  _wingsObject: {fileID: 259168380}
   dashAbilityCooldown: 5
   dashAbilityCooldownTimer: 5
   _thrusterScript: {fileID: 1920041749}
@@ -2786,8 +2813,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1757757531
-CircleCollider2D:
+--- !u!114 &1757757532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757757526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532f72117a652f340afc240bbb166670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1757757533
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2818,21 +2857,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.09471567}
+  m_Offset: {x: -0.010634609, y: 0.06661004}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.38338235
---- !u!114 &1757757532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757757526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532f72117a652f340afc240bbb166670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.40444785, y: 0.7105534}
+  m_EdgeRadius: 0
 --- !u!1 &1920041746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,7 +2967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62d312e97e484242ad62054744405f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThrusterForce: 5
+  ThrusterForce: 0
 --- !u!1 &2026296029
 GameObject:
   m_ObjectHideFlags: 0

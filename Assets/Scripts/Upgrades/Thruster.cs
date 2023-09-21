@@ -10,23 +10,22 @@ public class Thruster : MonoBehaviour
 
     [SerializeField] private int ThrusterForce;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.FindAnyObjectByType<Player>();
-        playerData = GameObject.FindAnyObjectByType<PlayerData>();
+        player = GameObject.FindAnyObjectByType<Player>().GetComponent<Player>();
+        playerData = GameObject.FindAnyObjectByType<PlayerData>().GetComponent<PlayerData>();
+        playerRb = player.GetComponent<Rigidbody2D>();
     }
 
-    public void ThrusterControls()
+    public void FireThrusters()
     {
-            if(Input.GetKey(KeyCode.Space) && player.areWingsOut)
-            {
-                Debug.Log("Thruster Working");
-                playerRb.AddForce(new Vector2(ThrusterForce, 1), ForceMode2D.Force);
-            }
-            if(Input.GetKeyUp(KeyCode.Space) || !player.areWingsOut)
-            {
-                Debug.Log("thruster Stopped");
-                return;
-            }
+        Debug.Log("Thrusters Active");
+        playerRb.AddForce(new Vector2(ThrusterForce, 1), ForceMode2D.Force);
+    }
+
+    public void StopThrusters()
+    {
+        Debug.Log("thruster Stopped");
+        return;
     }
 }
