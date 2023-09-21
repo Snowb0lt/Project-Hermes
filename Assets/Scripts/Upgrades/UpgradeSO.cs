@@ -19,16 +19,6 @@ public class UpgradeSO : ScriptableObject
 
     public int _upgradeCap;
 
-    public void UpgradeCapacity()
-    {
-
-    }
-
-    public void UpgradePrerequisites()
-    {
-
-    }
-
     //public int _finalUpgradeCost;
     //public void CostAdjustment()
     //{

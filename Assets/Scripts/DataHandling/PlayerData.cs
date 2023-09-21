@@ -62,10 +62,6 @@ public class PlayerData : MonoBehaviour
         UpgradeDictionary.Add(Stats.Bounciness, 0);
     }
 
-    private void Update()
-    {
-
-    }
 
     /// <summary>
     /// Certain Objects are unlockable (bounce pads, wings, etc.). This controls unlocking them

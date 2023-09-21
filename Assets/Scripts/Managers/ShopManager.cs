@@ -129,5 +129,6 @@ public class ShopManager : MonoBehaviour
         _playerData._daysLeft++;
     }
 
+    //Handle Prerequisites
 
 }

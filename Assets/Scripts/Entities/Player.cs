@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
             {
                 _finalLaunchForce = _baseLaunchForce * (1 + _playerData.UpgradeDictionary[PlayerData.Stats.LaunchForce]);
-                Debug.Log($"Player launching at {_finalLaunchForce} {_finalLaunchForce / 2}" + $"Player Bounciness is {_bounciness.bounciness}");
                 _isLaunched = true;
                 GameBegun?.Invoke();
                 _playerRb.AddForce(new Vector2(_finalLaunchForce, (_finalLaunchForce / 2)), ForceMode2D.Impulse);
@@ -72,6 +71,7 @@ public class Player : MonoBehaviour
         
         
     }
+
     /// <summary>
     /// Controls when the player hits an obstacle and the minimum speed for the player to stop completely.
     /// </summary>
@@ -128,13 +128,17 @@ public class Player : MonoBehaviour
 
     [Header("Unique Abilities")]
     //Parameters for Wings
-    private bool areWingsOut = false;
+    public bool areWingsOut = false;
 
     //Parameters for Airdash
     private float dashButtonTimer;
     private float dashButtonCooldown = 0.5f;
     [SerializeField]private float dashAbilityCooldown = 5;
     [SerializeField]private float dashAbilityCooldownTimer;
+
+    //Parameters for Thrusters
+    [SerializeField] private Thruster _thrusterScript;
+    [SerializeField] private GameObject thrusterObject;
     public void UniqueUpgrades()
     {
         //Wings
@@ -182,6 +186,14 @@ public class Player : MonoBehaviour
             }
 
             dashAbilityCooldown += Time.deltaTime;
+        }
+
+        //Thrusters
+
+        if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Thrusters))
+        {
+            _thrusterScript.ThrusterControls();
+            thrusterObject.SetActive(true);
         }
     }
 }

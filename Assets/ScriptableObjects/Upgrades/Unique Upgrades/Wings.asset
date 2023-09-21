@@ -18,6 +18,8 @@ MonoBehaviour:
   _upgradeDescription: '"Urds.. fancy winged kobolds. But why should the get all
     the fun? With these parts, I bet your clever little head can fashion some wings
     of your own! Won''t fly, sure, but they''ll help you glide."'
-  _statToUpgrade: 5
+  _statToUpgrade: 6
+  _playerData: {fileID: 0}
   _upgradeAmount: 1
   _unlockedSpawnable: {fileID: 0}
+  _upgradeCap: 0
