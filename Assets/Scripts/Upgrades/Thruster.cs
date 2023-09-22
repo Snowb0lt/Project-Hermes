@@ -10,6 +10,8 @@ public class Thruster : MonoBehaviour
 
     [SerializeField] private int ThrusterForce;
 
+    [SerializeField] private ParticleSystem particles;
+
     private void Awake()
     {
         player = GameObject.FindAnyObjectByType<Player>().GetComponent<Player>();
@@ -25,6 +27,8 @@ public class Thruster : MonoBehaviour
 
     public void StopThrusters()
     {
+        particles.Stop();
+        particles.gameObject.SetActive(false);
         Debug.Log("thruster Stopped");
         return;
     }

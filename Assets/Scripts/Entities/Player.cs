@@ -147,6 +147,7 @@ public class Player : MonoBehaviour
     //Parameters for Thrusters
     [SerializeField] private Thruster _thrusterScript;
     [SerializeField] private GameObject thrusterObject;
+    [SerializeField] private ParticleSystem particles;
     public void UniqueUpgrades()
     {
         WingsControls();
@@ -215,12 +216,17 @@ public class Player : MonoBehaviour
         if (_playerData.UpgradeDictionary.ContainsKey(PlayerData.Stats.Thrusters))
         {
             thrusterObject.SetActive(true);
-            if(!areWingsOut)
+            //if(!areWingsOut)
+            //{
+            //    return;
+            //}
+            //else
+            //{
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                return;
+                particles.gameObject.SetActive(true);
+                particles.Play();
             }
-            else
-            {
                 if (Input.GetKey(KeyCode.Space))
                 {
                     ThrustersOn.Invoke();
@@ -230,7 +236,7 @@ public class Player : MonoBehaviour
                 {
                     ThrustersOff.Invoke();
                 }
-            }
+            //}
 
         }
     }
