@@ -5,14 +5,12 @@ using UnityEngine.UIElements;
 
 public class BackgroundScroll : MonoBehaviour
 {
-    private float scrollSpeed;
+    [SerializeField]private float scrollSpeed;
     [SerializeField] private float distantSlowdown;
     [SerializeField] private float maxHeight;
     private float offset;
 
-    private Material backgroundMat;
-    [SerializeField] private SpriteRenderer backgroundRenderer;
-    [SerializeField] private GameObject backgroundSprite;
+    [SerializeField]private Material backgroundMat;
 
     private Rigidbody2D playerRb;
     private Player player;
@@ -20,9 +18,8 @@ public class BackgroundScroll : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindAnyObjectByType<Player>();
-        playerRb = GameObject.FindAnyObjectByType<Player> ().GetComponent<Rigidbody2D> ();
-        backgroundMat = GetComponent<SpriteRenderer>().material;
+        player = GameObject.FindAnyObjectByType<Player>().GetComponent<Player>();
+        playerRb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,11 +31,9 @@ public class BackgroundScroll : MonoBehaviour
         }
         else
         {
-            backgroundSprite.transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, transform.position.z);
-            scrollSpeed = playerRb.velocity.x;
             offset += scrollSpeed / distantSlowdown;
 
-            backgroundMat.mainTextureOffset = new Vector2(offset, maxHeight);
+            backgroundMat.mainTextureOffset = (new Vector2(offset, 1));
 
         }
 
