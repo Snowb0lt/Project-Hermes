@@ -37,6 +37,7 @@ public class Thruster : MonoBehaviour
         }
         else
         {
+            particles.Stop();
             Debug.Log("Out of Fuel");
         }
     }

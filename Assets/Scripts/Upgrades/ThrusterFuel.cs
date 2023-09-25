@@ -6,6 +6,10 @@ public class ThrusterFuel : MonoBehaviour
 {
     public float fuelAmount;
     [SerializeField] private float fuelDrain;
+    public void Start()
+    {
+        fuelAmount = fuelAmount + (100 * PlayerData._instance.UpgradeDictionary[PlayerData.Stats.Fuel]);
+    }
 
     public void ThrusterFuelDraining()
     {
