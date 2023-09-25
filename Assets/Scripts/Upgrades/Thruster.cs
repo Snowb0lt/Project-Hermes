@@ -32,7 +32,7 @@ public class Thruster : MonoBehaviour
             particles.gameObject.SetActive(true);
             particles.Play();
             Debug.Log("Thrusters Active");
-            playerRb.AddForce(new Vector2(ThrusterForce, 1), ForceMode2D.Force);
+            playerRb.AddForce(new Vector2(ThrusterForce, 15), ForceMode2D.Force);
             drainFuel.Invoke();
         }
         else
