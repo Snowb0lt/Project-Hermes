@@ -11,19 +11,14 @@ public class SaveData : MonoBehaviour
     {
         playerData = PlayerData._instance;
     }
+
     public void SavePlayerData()
     {
-        string json = JsonUtility.ToJson(playerData);
-        Debug.Log(json);
-
-        using (StreamWriter writer = new StreamWriter(Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json"))
-        {
-            writer.Write(json);
-        }
+        SaveManager.Save(playerData);
     }
 
     public void LoadPlayerData()
     {
-
+        playerData = SaveManager.Load();
     }
 }

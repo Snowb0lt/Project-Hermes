@@ -731,7 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerData: {fileID: 1626702276}
   _areWingsEnabled: 0
-  _player: {fileID: 1757757526}
+  _player: {fileID: 1757757529}
   _playerRb: {fileID: 1757757530}
 --- !u!1 &361632091
 GameObject:
@@ -749,7 +749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &361632092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,6 +1883,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 70544085}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SaveCoinTotal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1308750613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2558,6 +2570,7 @@ GameObject:
   - component: {fileID: 1757757527}
   - component: {fileID: 1757757530}
   - component: {fileID: 1757757529}
+  - component: {fileID: 1757757534}
   - component: {fileID: 1757757532}
   - component: {fileID: 1757757533}
   m_Layer: 0
@@ -2717,21 +2730,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  WingsOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 259168383}
-        m_TargetAssemblyTypeName: Wings, Assembly-CSharp
-        m_MethodName: ActivateWings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   WingsIn:
     m_PersistentCalls:
       m_Calls:
@@ -2747,60 +2745,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  AirDash:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 361632092}
-        m_TargetAssemblyTypeName: Airdash, Assembly-CSharp
-        m_MethodName: ActivateAirDash
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  ThrustersOn:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1920041749}
-        m_TargetAssemblyTypeName: Thruster, Assembly-CSharp
-        m_MethodName: FireThrusters
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  ThrustersOff:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1920041749}
-        m_TargetAssemblyTypeName: Thruster, Assembly-CSharp
-        m_MethodName: StopThrusters
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _playerData: {fileID: 0}
+  _playerData: {fileID: 1626702276}
   _playerRb: {fileID: 1757757530}
   _ground: {fileID: 1488475835}
-  areWingsOut: 0
-  _wingsObject: {fileID: 259168380}
-  dashAbilityCooldown: 5
-  dashAbilityCooldownTimer: 5
-  _thrusterScript: {fileID: 1920041749}
-  thrusterObject: {fileID: 1920041746}
 --- !u!50 &1757757530
 Rigidbody2D:
   serializedVersion: 4
@@ -2885,6 +2832,99 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7320244, y: 0.7105534}
   m_EdgeRadius: 0
+--- !u!114 &1757757534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757757526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66264fa3b46de444cb9be33256dbf649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areWingsOut: 0
+  _wingsObject: {fileID: 259168380}
+  dashAbilityCooldown: 5
+  dashAbilityCooldownTimer: 0
+  _thrusterScript: {fileID: 1920041749}
+  thrusterObject: {fileID: 1920041746}
+  WingsOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 259168383}
+        m_TargetAssemblyTypeName: Wings, Assembly-CSharp
+        m_MethodName: ActivateWings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  WingsIn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 259168383}
+        m_TargetAssemblyTypeName: Wings, Assembly-CSharp
+        m_MethodName: DeactivateWings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AirDash:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 361632092}
+        m_TargetAssemblyTypeName: Airdash, Assembly-CSharp
+        m_MethodName: ActivateAirDash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ThrustersOn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1920041749}
+        m_TargetAssemblyTypeName: Thruster, Assembly-CSharp
+        m_MethodName: FireThrusters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ThrustersOff:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1920041749}
+        m_TargetAssemblyTypeName: Thruster, Assembly-CSharp
+        m_MethodName: StopThrusters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1884025086
 GameObject:
   m_ObjectHideFlags: 0
@@ -8055,6 +8095,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 685166039}
   - {fileID: 1488475832}
   - {fileID: 1757757528}
   - {fileID: 145305154}
@@ -8063,5 +8104,4 @@ SceneRoots:
   - {fileID: 70544086}
   - {fileID: 655702505}
   - {fileID: 1499725831}
-  - {fileID: 685166039}
   - {fileID: 1626702277}

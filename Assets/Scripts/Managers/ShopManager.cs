@@ -123,7 +123,6 @@ public class ShopManager : MonoBehaviour
     /// Extend the Days after buying upgrade
     /// </summary>
     /// 
-
     public void OnDaysExtended()
     {
         _playerData._daysLeft++;
