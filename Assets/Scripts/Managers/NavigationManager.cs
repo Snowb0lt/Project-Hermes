@@ -17,16 +17,32 @@ public class NavigationManager : MonoBehaviour
     /// </summary>
     public void NewRun()
     {
-        CountTheDay();
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(1);
+        if (playerData._daysLeft <= 0)
+        {
+            Debug.Log("You are out of time. Game Over");
+        }
+        else
+        {
+            CountTheDay();
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(1);
+        }
+        
     }
 
     public void MoveToShop()
     {
-        CountTheDay();
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(2);
+        if (playerData._daysLeft <= 0)
+        {
+            Debug.Log("You are out of time. Game Over");
+        }
+        else
+        {
+            CountTheDay();
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene(2);
+        }
+
     }
 
     public void ToMenu()
@@ -38,5 +54,10 @@ public class NavigationManager : MonoBehaviour
     public void CountTheDay()
     {
         playerData.ChangeTheDays();
+    }
+
+    public void LoseCondition()
+    {
+
     }
 }

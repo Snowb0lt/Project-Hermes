@@ -160,6 +160,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int endWallOffset;
     [SerializeField] private int endWallGroundOffset;
     private bool hasWallSpawned = false;
+
+    /// <summary>
+    /// This section dictates what happens to end the game, either by losing or winning
+    /// </summary>
     private void EndTheGame()
     {
         if ((_distanceFromStart >= _GoalDistance) && (hasWallSpawned == false))
@@ -168,4 +172,6 @@ public class GameManager : MonoBehaviour
             hasWallSpawned = true;
         }
     }
+
+
 }
