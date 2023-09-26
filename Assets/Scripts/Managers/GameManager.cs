@@ -154,25 +154,6 @@ public class GameManager : MonoBehaviour
         _playerData._coins = _totalMoney;
     }
 
-    public void NewRun()
-    {
-        CountTheDay();
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(0);
-    }
-
-    public void MoveToShop()
-    {
-        CountTheDay();
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(1);
-    }
-
-    public void CountTheDay()
-    {
-        _playerData.ChangeTheDays();
-    }
-
     [Header("End Wall Spawning")]
     [SerializeField] public int _GoalDistance;
     [SerializeField] private GameObject endWall;

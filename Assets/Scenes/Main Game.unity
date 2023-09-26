@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 70544085}
   - component: {fileID: 70544087}
   - component: {fileID: 70544084}
+  - component: {fileID: 70544088}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -378,6 +379,19 @@ MonoBehaviour:
   _TotalMoneyText: {fileID: 1034103655}
   _MoneyEarnedText: {fileID: 969694632}
   _statsScreen: {fileID: 1512176958}
+--- !u!114 &70544088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70544083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a636ab3565931489952040db5ac1b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 1626702276}
 --- !u!1 &145305153
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,8 +860,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70544085}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 70544088}
+        m_TargetAssemblyTypeName: NavigationManager, Assembly-CSharp
         m_MethodName: NewRun
         m_Mode: 1
         m_Arguments:
@@ -1857,8 +1871,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 70544085}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 70544088}
+        m_TargetAssemblyTypeName: NavigationManager, Assembly-CSharp
         m_MethodName: MoveToShop
         m_Mode: 1
         m_Arguments:
