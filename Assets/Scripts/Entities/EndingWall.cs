@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class EndingWall : MonoBehaviour
 {
+    [SerializeField] private UnityEvent endTheGame;
+
+    [SerializeField] private NavigationManager navigationManager;
     [SerializeField] private Player _player;
 
     private void Awake()
     {
         _player = GameObject.FindAnyObjectByType<Player>().GetComponent<Player>();
+        navigationManager = FindAnyObjectByType<NavigationManager>().GetComponent<NavigationManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,9 +31,22 @@ public class EndingWall : MonoBehaviour
             EndTheGame();
         }
     }
+    [SerializeField] private GameObject blackScreen;
+    [SerializeField] private float fadeSpeed;
+
     private void EndTheGame()
     {
-        Time.timeScale = 0f;
-        Debug.Log("Game Has Ended. You Win!");
+        //TODO: Slow the game down, fade to black.
+        //Time.timeScale = 0.5f;
+
+        //Color objectColor = blackScreen.GetComponent<Image>().color;
+        //fadeSpeed = objectColor.a;
+
+        //while (blackScreen.GetComponent<Image>().color.a < 1) 
+        //{
+        //    objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeSpeed);
+        //    blackScreen.GetComponent<Image>().color = objectColor;
+        //}
+        navigationManager.WinCondition();
     }
 }

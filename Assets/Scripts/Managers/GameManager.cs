@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     private bool _isGameGoing = false;
 
     [SerializeField] private List<GameObject> _spawnables = new List<GameObject>();
+
+    private void Awake()
+    {
+        _playerData = GameObject.FindAnyObjectByType<PlayerData>().GetComponent<PlayerData>();
+    }
     void Start()
     {        
         if (_instance == null || _instance != this)

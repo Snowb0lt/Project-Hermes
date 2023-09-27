@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,11 @@ public class NavigationManager : MonoBehaviour
     /// <summary>
     /// Navigation between The Menu, the Game, and the Shop
     /// </summary>
+    /// 
+    public void StartTheGame()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void NewRun()
     {
         if (playerData._daysLeft <= 0)
@@ -56,8 +62,13 @@ public class NavigationManager : MonoBehaviour
         playerData.ChangeTheDays();
     }
 
-    public void LoseCondition()
+    public void WinCondition()
     {
+        SceneManager.LoadScene(3);
+    }
 
+    public void QuitTheGame()
+    {
+        Application.Quit();
     }
 }
