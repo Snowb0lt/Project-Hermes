@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private PlayerData _playerData;
 
-    [SerializeField] private UnityEvent startANewRun;
-
     //Check if the game has started
     private bool _isGameGoing = false;
 

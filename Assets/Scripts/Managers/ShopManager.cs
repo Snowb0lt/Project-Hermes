@@ -114,7 +114,6 @@ public class ShopManager : MonoBehaviour
 
     public void BackToLaunch()
     {
-        startANewRun.Invoke();
         SaveStats();
         SceneManager.LoadScene(0);
     }

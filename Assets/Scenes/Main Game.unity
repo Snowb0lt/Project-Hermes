@@ -304,15 +304,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  _spawnTime: 2
+  _spawnTime: 1
   _playerScript: {fileID: 0}
   _spawnOffset: 80
   _ground: {fileID: 1488475830}
   _player: {fileID: 1757757526}
   _playerData: {fileID: 0}
-  startANewRun:
-    m_PersistentCalls:
-      m_Calls: []
   _spawnables:
   - {fileID: 2357536154502611677, guid: 5140d82cbb0e55b409cb6af2f700d313, type: 3}
   - {fileID: 6474781603942908793, guid: 12889b5aa2c57454d85c37879c979514, type: 3}
@@ -966,59 +963,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &481264691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 481264692}
-  - component: {fileID: 481264693}
-  m_Layer: 0
-  m_Name: PlayerData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &481264692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481264691}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 625.5181, y: 287.259, z: -2.4810758}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &481264693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481264691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb83bc743abdc14995b71f22347a13c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coins: 0
-  _dayNumber: 0
-  _currentDay: 0
-  _daysLeft: 100
-  _longestDistance: 0
-  UnlockedSpawnables: []
-  _launchForce: 1
-  _PlayerBounce: 1
-  upgradeSO: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,18 +1868,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 70544085}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SaveCoinTotal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1308750613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,7 +2567,6 @@ GameObject:
   - component: {fileID: 1757757530}
   - component: {fileID: 1757757529}
   - component: {fileID: 1757757534}
-  - component: {fileID: 1757757532}
   - component: {fileID: 1757757533}
   m_Layer: 0
   m_Name: Player
@@ -2827,18 +2758,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1757757532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757757526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532f72117a652f340afc240bbb166670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1757757533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8156,4 +8075,3 @@ SceneRoots:
   - {fileID: 70544086}
   - {fileID: 655702505}
   - {fileID: 1499725831}
-  - {fileID: 481264692}

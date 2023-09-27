@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class EndingWall : MonoBehaviour
 {
-    [SerializeField] private UnityEvent endTheGame;
-
     [SerializeField] private NavigationManager navigationManager;
     [SerializeField] private Player _player;
 

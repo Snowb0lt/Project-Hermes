@@ -44,7 +44,6 @@ public class NavigationManager : MonoBehaviour
         }
         else
         {
-            CountTheDay();
             Time.timeScale = 1.0f;
             SceneManager.LoadScene(2);
         }

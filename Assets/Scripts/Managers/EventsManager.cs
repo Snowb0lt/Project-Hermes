@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EventsManager : MonoBehaviour
@@ -11,7 +9,14 @@ public class EventsManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        _instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            UnityEngine.Object.Destroy(gameObject);
+        }
         gameManager = GameObject.FindAnyObjectByType<GameManager>();
     }
 
