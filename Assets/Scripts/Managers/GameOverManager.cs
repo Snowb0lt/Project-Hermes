@@ -14,7 +14,7 @@ public class GameOverManager : MonoBehaviour
 
     [SerializeField] private AudioSource Thud;
 
-    private void Start()
+    private void Awake()
     {
         BadEndTextAnim = BadEndText.GetComponent<Animator>();
         BadEndTextAnim.SetBool("IsPlaying", false);

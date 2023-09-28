@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &334659025
 RectTransform:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   GameOverText: {fileID: 881437506}
   MenuButton: {fileID: 334659024}
   BadEndText: {fileID: 857724005}
-  BadEndTextAnim: {fileID: 0}
+  BadEndTextAnim: {fileID: 857724009}
   Thud: {fileID: 881437507}
 --- !u!4 &569991971
 Transform:

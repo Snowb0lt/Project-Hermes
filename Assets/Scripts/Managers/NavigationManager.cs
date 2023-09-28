@@ -23,14 +23,14 @@ public class NavigationManager : MonoBehaviour
     }
     public void NewRun()
     {
+        Time.timeScale = 1.0f;
         if (playerData._daysLeft <= 0)
         {
-            Debug.Log("You are out of time. Game Over");
+            SceneManager.LoadScene(4);
         }
         else
         {
             CountTheDay();
-            Time.timeScale = 1.0f;
             SceneManager.LoadScene(1);
         }
         
@@ -38,13 +38,13 @@ public class NavigationManager : MonoBehaviour
 
     public void MoveToShop()
     {
+        Time.timeScale = 1.0f;
         if (playerData._daysLeft <= 0)
         {
-            Debug.Log("You are out of time. Game Over");
+            SceneManager.LoadScene(4);
         }
         else
         {
-            Time.timeScale = 1.0f;
             SceneManager.LoadScene(2);
         }
 
