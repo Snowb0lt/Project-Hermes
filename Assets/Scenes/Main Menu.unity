@@ -687,10 +687,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb83bc743abdc14995b71f22347a13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 500
+  _coins: 0
   _dayNumber: 0
   _currentDay: 0
-  _daysLeft: 3
+  _daysLeft: 50
   _longestDistance: 0
   UnlockedSpawnables: []
   _launchForce: 1
