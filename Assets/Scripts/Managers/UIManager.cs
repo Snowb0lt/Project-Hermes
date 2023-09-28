@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [Header("Stats Screen UI")]
     [SerializeField] private TMP_Text _DayText;
     [SerializeField] private TMP_Text _DistanceText;
+    [SerializeField] private TMP_Text _DistanceStatText;
     [SerializeField] private TMP_Text _TotalMoneyText;
     [SerializeField] private TMP_Text _MoneyEarnedText;
     [SerializeField] private GameObject _statsScreen;
@@ -45,5 +46,6 @@ public class UIManager : MonoBehaviour
         _MoneyEarnedText.text = GameManager._instance._moneyEarned.ToString() + " Coins Earned";
         _TotalMoneyText.text = PlayerData._instance._coins + " Total Coins";
         _DayText.text = "Day " + PlayerData._instance._currentDay;
+        _DistanceStatText.text = GameManager._instance._distanceFromStart.ToString() + " Meters";
     }
 }
