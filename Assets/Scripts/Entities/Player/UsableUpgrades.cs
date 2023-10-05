@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// This Script...
+/// 1) controls The wings
+/// 2) Controls the Thrusters
+/// 3) Controls Airdash
+/// </summary>
 public class UsableUpgrades : MonoBehaviour
 {
     private PlayerData _playerData;

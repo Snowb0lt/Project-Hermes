@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
+/// <summary>
+/// Manages the Shop, where one can buy upgrades
+/// </summary>
 public class ShopManager : MonoBehaviour
 {
     //To Do: Make a scriptable object to hold the information about the various upgrades

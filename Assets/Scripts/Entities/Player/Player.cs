@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This script...
+/// 1) Launches the Kobold
+/// 2) Affects What happens when the Player hits the ground OR an object
+/// 3) Stops the Player When Interacting with objects
+/// </summary>
+
 public class Player : MonoBehaviour
 {
     [SerializeField] public bool _isLaunched;
@@ -52,13 +59,8 @@ public class Player : MonoBehaviour
                 _isLaunched = true;
                 GameBegun?.Invoke();
                 _playerRb.AddForce(new Vector2(_finalLaunchForce, (_finalLaunchForce / 2)), ForceMode2D.Impulse);
-
             }
-
         }
-        //Affect Player Bounciness
-
-
     }
 
     /// <summary>

@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Extends the days, and spawns the wall
+/// </summary>
 public class EventsManager : MonoBehaviour
 {
     private GameManager gameManager;

@@ -3,6 +3,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This Script...
+/// 1) Controls Time
+/// 2) Controls the spawning of objects
+/// 3) Judges distance, and converts that distance into money
+/// 4) Spawns the great wall
+/// </summary>
 
 public class GameManager : MonoBehaviour
 {
@@ -175,6 +182,4 @@ public class GameManager : MonoBehaviour
             hasWallSpawned = true;
         }
     }
-
-
 }

@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+/// <summary>
+/// Governs the behaviour of the Ending wall, and ends the game when it is crossed;
+/// </summary>
 public class EndingWall : MonoBehaviour
 {
     [SerializeField] private NavigationManager navigationManager;

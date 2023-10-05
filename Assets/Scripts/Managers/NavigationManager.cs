@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Navigates Between Scenes
+/// </summary>
 public class NavigationManager : MonoBehaviour
 {
     public PlayerData playerData;
