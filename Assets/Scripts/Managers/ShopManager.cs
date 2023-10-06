@@ -94,9 +94,10 @@ public class ShopManager : MonoBehaviour
     /// Set what scriptable object is here, and buy the item
     /// </summary>
     private int _upgradeCost;
-    
+    [SerializeField] public AudioSource buySound;
     public void BuyButton()
     {
+        buySound.Play();
         BuyItem(upgradeSO._upgradeCost, upgradeSO._statToUpgrade, upgradeSO._upgradeAmount);
         //Debug.Log($"Buying {upgradeScriptableObjects._upgradeName} at {upgradeScriptableObjects._upgradeCost}");
         if (upgradeSO._statToUpgrade == PlayerData.Stats.AddDays)
@@ -113,12 +114,6 @@ public class ShopManager : MonoBehaviour
     {
         //Save Money after purchases
         _playerData._coins = _totalMoney;
-    }
-
-    public void BackToLaunch()
-    {
-        SaveStats();
-        SceneManager.LoadScene(0);
     }
 
     /// <summary>
