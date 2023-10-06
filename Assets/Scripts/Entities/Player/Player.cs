@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
         KoboldLaunched();
     }
 
+    [SerializeField] private AudioSource slingshotSound;
     private void KoboldLaunched()
     {
         //Affect Launching
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
             {
+                slingshotSound.Play();
                 _finalLaunchForce = _baseLaunchForce * (1 + _playerData.UpgradeDictionary[PlayerData.Stats.LaunchForce]);
                 _isLaunched = true;
                 GameBegun?.Invoke();
