@@ -64,10 +64,10 @@ public class NavigationManager : MonoBehaviour
         playerData.ChangeTheDays();
     }
 
-    //public void ShowGamePremise()
-    //{
-    //    SceneManager.LoadScene();
-    //}
+    public void ShowGamePremise()
+    {
+        SceneManager.LoadScene(5);
+    }
 
     public void WinCondition()
     {
