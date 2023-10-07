@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Airboost" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAEAAAAAAAAAAAAAAEEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Airboost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Airdash" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Upgrades\Airdash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackgroundScript" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAAAAAIAQAAAAAAAAAAIAACCAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BackgroundScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackgroundScroll" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASQACAAAABQAAAAAAAAAAAAAAAAAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Aesthetics\BackgroundScroll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bird" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACARAAAAwAAAAAAAAAAAAAAJAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Bird.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BouncePad" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACEAACAQAAAAQAAAAAAAAAAAAAABAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\BouncePad.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DespawnWall" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACKAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\DespawnWall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DisplayUpgrade" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAEAAAAAAgAAAAIQAAAAAAAAAABAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Upgrades\DisplayUpgrade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DropdownSample" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAQAAAAAAIIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EndingDisplayStats" Collapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAABAAAAAAAAABBAAAAAAAAAACAEA=</HashCode>
+      <FileName>Assets\Scripts\EndingDisplayStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EndingWall" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEAAAAAAAABAAAAAAAACAACAEAAAAAAAAAgAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\EndingWall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEgACABAAAAYACAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Entities\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EnvMapAnimator" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAACAAAAAAAAAgAAAAAAQAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventsManager" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAGA=</HashCode>
+      <FileName>Assets\Scripts\Managers\EventsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQlCAAAASiRAAAAAAigOACAAABAAEwAgABQCACAQEg=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameOverManager" Collapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAIAAQAAEAAAAAQAAAAAABAAAAAAAAAAAAAgEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameOverManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ground" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAABAAAAQABAKAAAAAACAAAAAAAAAAAAAEQ=</HashCode>
+      <FileName>Assets\Scripts\Entities\Ground.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IPurchasable" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\IPurchasable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainCamera" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAKAAAAIAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MainCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NavigationManager" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAIAAACBAAAAAAAERAAAAABAAAAAAAAAABAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\NavigationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUQAAAAAACAAAAASACAQEAAEAAACAEDAIAAigAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerData">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="PlayerData.Stats" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\DataHandling\PlayerData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAEAAAIAAAQAAAAAAAAACgAAABAAACAACQACAAAQEE=</HashCode>
+      <FileName>Assets\Scripts\DataHandling\PlayerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PremiseMenu" Collapsed="true">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAQAAAAKAAAAACACAAAAAAAAAAAAAAAgAggAAAgEA=</HashCode>
+      <FileName>Assets\Scripts\PremiseMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveData" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAABAAAEAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\DataHandling\SaveData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveManager" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\DataHandling\SaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopManager" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQEIAMCACBQAAAIAAAAAAAABAAAAEAAAAAAAAAAYEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\ShopManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Thruster" Collapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAYAQAAAAAAiAAAAAAAAABAABAAAAACAAAMA=</HashCode>
+      <FileName>Assets\Scripts\Upgrades\Thruster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThrusterFuel" Collapsed="true">
+    <Position X="12.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAAAAAAAAAAAAABAIACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Upgrades\ThrusterFuel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="15.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQECEIAACABAAACAAAAAAAAAEAAAEAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UpgradeSO" Collapsed="true">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACgAEgAQABAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\Upgrades\UpgradeSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UsableUpgrades" Collapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQYEBAUAAAAAIAAAAAAACCAEAQAAAMCAAAIAAASAAME=</HashCode>
+      <FileName>Assets\Scripts\Entities\Player\UsableUpgrades.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wings" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAQAAAAAACAAAAAACAEAAAAQAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Upgrades\Wings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ISlowable" Collapsed="true">
+    <Position X="19.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\ISlowable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ISpawnable" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\ISpawnable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IUpgradable" Collapsed="true">
+    <Position X="19.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\IUpgradable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IObstacle" Collapsed="true">
+    <Position X="19.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\IObstacle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IInteractable" Collapsed="true">
+    <Position X="19.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\IInteractable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IGroundable" Collapsed="true">
+    <Position X="19.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\IGroundable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IDestructable" Collapsed="true">
+    <Position X="19.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interfaces\IDestructable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
